@@ -19,14 +19,12 @@
           <PrimaryButton type="submit">Confirmar</PrimaryButton>
         </form>
         <!-- <v-scroll-y-transition>
-          <!-- eslint-disable vue/no-v-html -->
-        <!-- <p
+        <p
             v-if="confirmed"
             class="texts px-5 px-sm-0 body-wrapper"
             v-html="body || 'Texto'"
           />
         </v-scroll-y-transition> -->
-        -->
       </Container>
     </JumboSecondary>
   </div>

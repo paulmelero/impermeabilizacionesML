@@ -31,7 +31,6 @@ export default defineNuxtConfig({
   //   fallback: true,
   //   routes: [...getServicesStatic(), ...getPlacesStatic()],
   // },
-  css: ['~/assets/scss/main.scss'],
 
   modules: [
     '@nuxt/image',
