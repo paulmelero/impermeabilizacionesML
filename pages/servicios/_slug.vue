@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-img
+    <Image
       :lazy-src="$img(image, { width: 10, quality: 70 })"
       :src="$img(image)"
       max-height="500"
@@ -15,20 +15,14 @@
         <span>Sistema Sostenible con el Medio Ambiente</span>
       </p>
       <h1
-        class="
-          font-weight-bold
-          text-md-h3 text-sm-h3 text-xs-h5
-          mb-4
-          px-5 px-sm-0
-        "
+        class="font-weight-bold text-md-h3 text-sm-h3 text-xs-h5 mb-4 px-5 px-sm-0"
       >
         {{ service.title }}
       </h1>
-      <!-- eslint-disable vue/no-v-html -->
       <div class="texts mt-10 px-5 px-sm-0" v-html="body"></div>
     </Container>
     <Container class="mt-12">
-      <v-divider class="mb-8" />
+      <!-- <v-divider class="mb-8" /> -->
       <div class="text-center">
         <PrimaryButton exact outlined to="/servicios" nuxt class="px-6 mx-auto"
           >Volver a servicios</PrimaryButton

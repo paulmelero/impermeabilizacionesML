@@ -8,7 +8,7 @@
 
     <!-- -->
     <div class="secondary white--text mb-16 overflow-hidden">
-      <v-container class="py-12">
+      <!-- <v-container class="py-12">
         <h2 class="text-center font-bold mb-12 text-h4 text-sm-h3">
           Impermeabilización de terrazas y cubiertas
         </h2>
@@ -33,10 +33,10 @@
             />
           </v-col>
         </v-row>
-      </v-container>
+      </v-container> -->
     </div>
     <!-- -->
-    <v-container class="other-services mb-16">
+    <!-- <v-container class="other-services mb-16">
       <h2 class="text-center mb-10 text-h4">Más servicios</h2>
       <v-row>
         <v-col
@@ -49,7 +49,7 @@
           <CardsServiceCard class="mb-10" :service="service" static-card />
         </v-col>
       </v-row>
-    </v-container>
+    </v-container> -->
     <!-- -->
     <Zones class="pt-12" />
   </div>

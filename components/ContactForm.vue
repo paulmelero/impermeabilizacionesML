@@ -1,5 +1,5 @@
 <template>
-  <v-form
+  <form
     :name="formName"
     action="/gracias"
     method="post"
@@ -14,47 +14,43 @@
       /></label>
     </p>
     <input id="form-name" type="hidden" name="form-name" :value="formName" />
-    <v-text-field
+    <input
       id="phone"
       label="Teléfono"
       required
-      outlined
       type="tel"
       name="phone"
       input-mode="decimal"
       prepend-icon="mdi-phone"
       :rules="[rules.required]"
-    ></v-text-field>
-    <v-text-field
+    ></input>
+    <input
       id="email"
       label="e-mail (opcional)"
       required
-      outlined
       type="email"
       name="email"
       prepend-icon="mdi-email"
-    ></v-text-field>
-    <v-text-field
+    ></input>
+    <input
       id="place"
       label="Localidad"
       auto-complete="home city"
       required
-      outlined
       name="place"
       prepend-icon="mdi-map-marker"
       :rules="[rules.required]"
-    ></v-text-field>
-    <v-textarea
+    ></input>
+    <textarea
       :rules="[rules.notSpammy]"
-      outlined
       name="comments"
       label="Comentarios (opcional)"
       prepend-icon="mdi-comment"
-    ></v-textarea>
-    <v-btn large rounded color="secondary" type="submit" class="w90p ml-9"
-      ><v-icon class="pr-5">mdi-email-fast</v-icon> Enviar</v-btn
+    ></textarea>
+    <button type="submit" class="w90p ml-9"
+      ><i class="pr-5">mdi-email-fast</i> Enviar</button
     >
-  </v-form>
+  </form>
 </template>
 
 <script>
@@ -73,9 +69,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-::v-deep .v-input.error--text {
-  margin-bottom: 1em;
-}
-</style>

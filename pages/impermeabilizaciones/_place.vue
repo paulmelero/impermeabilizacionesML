@@ -1,13 +1,13 @@
 <template>
   <div>
-    <JumboSecondary
+    <!-- <JumboSecondary
       :title="'Impermeabilizaciones en ' + palceTitle"
       min-height="10vh"
     >
-    </JumboSecondary>
+    </JumboSecondary> -->
     <Container class="pb-16 md:px-5">
       <div v-for="(work, i) of worksByPlace" :key="i">
-        <v-row
+        <!-- <v-row
           justify="space-around"
           class="flex-nowrap flex-column flex-md-row"
         >
@@ -26,16 +26,16 @@
             <p class="texts">{{ work.seoDescription }}</p></v-col
           >
         </v-row>
-        <v-divider v-if="i !== worksByPlace.length - 1" dark></v-divider>
+        <v-divider v-if="i !== worksByPlace.length - 1" dark></v-divider> -->
       </div>
     </Container>
     <Container class="mt-12">
-      <v-divider class="mb-8" />
+      <!-- <v-divider class="mb-8" />
       <div class="text-center">
         <PrimaryButton exact outlined to="/trabajos" nuxt class="px-6 mx-auto"
           >Ver más trabajos</PrimaryButton
         >
-      </div>
+      </div> -->
     </Container>
   </div>
 </template>

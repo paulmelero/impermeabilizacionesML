@@ -2,7 +2,7 @@
   <div>
     <JumboSecondary title="Servicios" :subtitle="subtitle" min-height="10vh" />
     <!-- -->
-    <v-container>
+    <!-- <v-container>
       <v-row>
         <v-col v-for="service in ecoServices" :key="service.title">
           <CardsEcoCard :service="service" flat class="mb-10" />
@@ -33,7 +33,7 @@
           <CardsServiceCard :service="service" flat static-card class="mb-10" />
         </v-col>
       </v-row>
-    </v-container>
+    </v-container> -->
   </div>
 </template>
 

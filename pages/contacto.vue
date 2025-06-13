@@ -16,11 +16,11 @@
         <h3 class="mb-6">Redes Sociales</h3>
         <ul class="list-reset pl-0">
           <li>
-            <v-btn
+            <button
               color="secondary"
               href="https://www.instagram.com/impermeabilizaciones_lm/"
               target="_blank"
-              ><v-icon dark class="mr-2">mdi-instagram</v-icon> Instagram</v-btn
+              ><Icon name="mdi-instagram" class="mr-2"></Icon> Instagram</button
             >
           </li>
         </ul>

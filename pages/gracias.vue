@@ -5,8 +5,8 @@
       subtitle="Te contactaremos lo antes posible"
     >
       <div class="text-center">
-        <v-btn to="/" nuxt large color="secondary"
-          >Volver a la página principal</v-btn
+        <nuxt-link to="/" class="secondary"
+          >Volver a la página principal</nuxt-link
         >
       </div>
     </JumboSecondary>

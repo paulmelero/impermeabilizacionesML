@@ -2,7 +2,7 @@
   <nuxt-link :to="placeLink">{{ place }}</nuxt-link>
 </template>
 
-<script>
+<script lang="ts">
 import { slugify } from '~/core/slugify'
 
 export default {

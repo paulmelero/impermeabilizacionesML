@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <v-btn rounded large :color="color" v-bind="[$attrs]">
+  <button :class="`btn btn-${color}`" v-bind="[$attrs]">
     <slot>Pide tu presupuesto</slot>
-  </v-btn>
+  </button>
 </template>

@@ -1,11 +1,11 @@
 <template>
-  <v-app>
+  <div>
     <Header />
 
-    <v-main class="pb-16">
-      <Nuxt />
-    </v-main>
+    <main class="pb-16">
+      <slot />
+    </main>
 
     <Footer />
-  </v-app>
+  </div>
 </template>
