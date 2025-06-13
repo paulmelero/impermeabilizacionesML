@@ -1,11 +1,6 @@
 <template>
   <div class="mt-10">
-    <Container
-      v-if="zones && zones.length"
-      class="zones"
-    >
-
-    </Container>
+    <Container v-if="zones && zones.length" class="zones"> </Container>
   </div>
 </template>
 
@@ -13,10 +8,9 @@
 import homeTexts from '~/content/static/home.json'
 
 const { zones } = homeTexts
-
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .zones {
   position: relative;
   overflow: hidden;
@@ -38,7 +32,7 @@ const { zones } = homeTexts
     transition: transform 0.5s;
     transform: rotateX(40deg);
     opacity: 0.3;
-    @media (max-width: 1024px) {
+    @media (max-width: 1199px) {
       background-size: 80%;
       background-position: right bottom;
     }

@@ -1,6 +1,6 @@
 <template>
   <label class="input">
-    <Icon v-if="prependIcon" :icon="prependIcon" />
+    <Icon v-if="prependIcon" :name="prependIcon" />
     <slot></slot>
     <input :type v-model="model" class="input input-lg" />
   </label>

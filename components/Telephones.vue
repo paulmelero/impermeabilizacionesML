@@ -15,21 +15,25 @@
           'mb-5': direction === 'vertical' && index !== telephones.length - 1,
           'ml-3': direction === 'horizontal' && index !== 0,
         }"
-        ><Icon class="mr-2">mdi-phone</Icon> {{ tel }}</nuxt-link
+        ><Icon class="mr-2" name="mdi-phone" /> {{ tel }}</nuxt-link
       ></span
     >
   </div>
 </template>
 
 <script setup lang="ts">
-
-withDefaults(defineProps(), {
-  direction: 'horizontal',
-  buttonProps: () => ({
-    text: true,
-    color: 'info', // TODO class
-  }),
-})
+withDefaults(
+  defineProps<{
+    direction?: 'horizontal' | 'vertical'
+    buttonProps?: Record<string, any>
+  }>(),
+  {
+    direction: 'horizontal',
+    buttonProps: () => ({
+      class: 'btn btn-secondary',
+    }),
+  }
+)
 
 // Reactive data
 const telephones = ['605 94 01 67']

@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .first-col {
   position: relative;
   &:after {
@@ -56,7 +56,7 @@ export default {
     height: 1px;
     background-color: #e9e9e9;
   }
-  @include onDesktop {
+  @media (min-width: 1200px) {
     &:after {
       content: '';
       top: 10%;

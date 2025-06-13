@@ -55,8 +55,8 @@
   </div>
 </template>
 
-<script>
-import { getMoreServices, getServices, getEcoServices } from '~/core/getContent'
+<script setup lang="ts">
+// import { getMoreServices, getServices, getEcoServices } from '~/core/getContent'
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -109,24 +109,24 @@ const structuredData = {
   },
 }
 
-export default {
-  asyncData() {
-    return {
-      services: getServices(),
-      ecoServices: getEcoServices(),
-      moreServices: getMoreServices(),
-    }
-  },
-  head() {
-    return {
-      __dangerouslyDisableSanitizers: ['script'],
-      script: [
-        {
-          innerHTML: JSON.stringify(structuredData),
-          type: 'application/ld+json',
-        },
-      ],
-    }
-  },
-}
+// export default {
+//   asyncData() {
+//     return {
+//       services: getServices(),
+//       ecoServices: getEcoServices(),
+//       moreServices: getMoreServices(),
+//     }
+//   },
+//   head() {
+//     return {
+//       __dangerouslyDisableSanitizers: ['script'],
+//       script: [
+//         {
+//           innerHTML: JSON.stringify(structuredData),
+//           type: 'application/ld+json',
+//         },
+//       ],
+//     }
+//   },
+// }
 </script>

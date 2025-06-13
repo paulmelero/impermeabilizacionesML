@@ -11,7 +11,7 @@
         v-if="isEco"
         class="overline green--text text--darken-3 font-weight-bold mb-6"
       >
-        <v-icon class="pr-2" color="green darken-3">mdi-recycle</v-icon>
+        <Icon class="pr-2 text-green" name="mdi-recycle" />
         <span>Sistema Sostenible con el Medio Ambiente</span>
       </p>
       <h1
@@ -82,11 +82,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .reserve-500 {
   min-height: 500px;
 }
-::v-deep :where(h2, h3, h4, h5, h6) {
+:deep :where(h2, h3, h4, h5, h6) {
   margin-top: 2rem;
   margin-bottom: 1rem;
 }

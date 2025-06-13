@@ -12,21 +12,19 @@ export default defineNuxtConfig({
     },
   },
 
-  // Global page headers: https://go.nuxtjs.dev/config-head
-  head: {
-    titleTemplate: `%s - ${BRAND_NAME} - Expertos en impermeabilización de cubiertas y terrazas.`,
-    title: BRAND_NAME,
-    description: BRAND_DESCRIPTION,
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: BRAND_DESCRIPTION },
-      { name: 'format-detection', content: 'telephone=no' },
-    ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+  app: {
+    head: {
+      title: BRAND_NAME,
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: BRAND_DESCRIPTION },
+        { name: 'format-detection', content: 'telephone=no' },
+      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    },
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
   // generate: {
   //   fallback: true,
   //   routes: [...getServicesStatic(), ...getPlacesStatic()],

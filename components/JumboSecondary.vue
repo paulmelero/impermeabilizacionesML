@@ -1,49 +1,12 @@
 <template>
-  <v-sheet class="jumbo mb-16" :style="{ '--bg-image': bgImageResolved }">
-    <v-container>
-      <v-row no-gutters :style="{ minHeight }" tag="section">
-        <v-col style="z-index: 1; isolation: isolate">
-          <v-sheet
-            class="
-              d-flex
-              flex-column
-              fill-height
-              transparent
-              align-center
-              justify-start
-              pt-16
-            "
-          >
-            <h1
-              v-if="title"
-              class="
-                font-weight-bold
-                text-md-h2 text-sm-h3 text-xs-h5
-                mb-3
-                text-center
-              "
-            >
-              {{ title }}
-            </h1>
-
-            <h2
-              v-if="subtitle"
-              class="
-                font-weight-light
-                text-md-h4 text-xs-h6 text-center text-md-left
-                mb-8
-                xs-only:w80p
-                px-5
-              "
-            >
-              {{ subtitle }}
-            </h2>
-            <div class="text-left px-5 w100p pt-16"><slot /></div>
-          </v-sheet>
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-sheet>
+  <div class="hero jumbo" :style="{ '--bg-image': bgImageResolved }">
+    <div class="hero-content text-neutral-content text-center">
+      <div class="max-w-md">
+        <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
+        <slot />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -76,7 +39,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .jumbo {
   position: relative;
   &::before,
@@ -93,7 +56,7 @@ export default {
     background-image: var(--bg-image);
     background-position: center;
     background-size: cover;
-    @include onDesktop {
+    @media (min-width: 1200px) {
       background-position-y: -128px;
     }
     z-index: 0;

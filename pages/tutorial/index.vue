@@ -68,7 +68,7 @@ const handleSubmit = (e) => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 #password {
   width: 100%;
   margin-bottom: 1rem;
@@ -76,12 +76,11 @@ const handleSubmit = (e) => {
   border-radius: 2px;
 }
 
-// content
-::v-deep :where(h2, h3, h4, h5, h6) {
+:deep :where(h2, h3, h4, h5, h6) {
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
-.body-wrapper::v-deep img {
+.body-wrapper:deep img {
   max-width: 100%;
   height: auto;
 }

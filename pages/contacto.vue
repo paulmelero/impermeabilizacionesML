@@ -12,7 +12,7 @@
         />
       </div>
 
-      <Container class="text-center mt-10">
+      <!-- <Container class="text-center mt-10">
         <h3 class="mb-6">Redes Sociales</h3>
         <ul class="list-reset pl-0">
           <li>
@@ -20,15 +20,16 @@
               color="secondary"
               href="https://www.instagram.com/impermeabilizaciones_lm/"
               target="_blank"
-              ><Icon name="mdi-instagram" class="mr-2"></Icon> Instagram</button
             >
+              <Icon name="mdi-instagram" class="mr-2"></Icon> Instagram
+            </button>
           </li>
         </ul>
-      </Container>
+      </Container> -->
     </JumboSecondary>
 
     <Container class="pb-16 mb-16">
-      <v-row justify="center">
+      <!-- <v-row justify="center">
         <v-col class="first-col" cols="12" sm="8" md="6">
           <Warantee />
         </v-col>
@@ -41,7 +42,7 @@
           </p>
           <ContactForm />
         </v-col>
-      </v-row>
+      </v-row> -->
     </Container>
   </div>
 </template>
@@ -70,7 +71,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .first-col {
   position: relative;
   &:after {
@@ -82,7 +83,7 @@ export default {
     height: 1px;
     background-color: #e9e9e9;
   }
-  @include onDesktop {
+  @media (min-width: 1200px) {
     &:after {
       content: '';
       top: 10%;

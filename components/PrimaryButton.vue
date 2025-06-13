@@ -1,17 +1,11 @@
-<script>
-export default {
+<script setup lang="ts">
+defineOptions({
   name: 'PrimaryButton',
-  props: {
-    color: {
-      type: String,
-      default: 'primary',
-    },
-  },
-}
+})
 </script>
 
 <template>
-  <button :class="`btn btn-${color}`" v-bind="[$attrs]">
+  <button class="btn btn-primary btn-large" v-bind="[$attrs]">
     <slot>Pide tu presupuesto</slot>
   </button>
 </template>
