@@ -1,9 +1,53 @@
 <template>
-
+  <ul
+    v-if="waranteeValues && waranteeValues.length"
+    class="list-reset flex flex-col"
+    :class="{
+      'md:flex-row gap-6': props.direction === 'horizontal',
+    }"
+  >
+    <li
+      v-for="(g, i) of waranteeValues"
+      :key="i"
+      class="md:max-w-[90%] mx-auto"
+      :class="{
+        'flex md:flex-col': props.direction === 'vertical',
+      }"
+    >
+      <div
+        class="container mx-auto"
+        :class="{
+          'text-center mb-8': props.direction === 'horizontal',
+          'mr-3 mb-3': props.direction === 'vertical',
+        }"
+      >
+        <span
+          class="inline-grid place-items-center w-16 h-16 p-3 rounded-full border border-base-300"
+        >
+          <Icon
+            :name="g.icon"
+            class="block text-3xl"
+            :class="{
+              'text-primary': props.fill,
+              'text-secondary': !props.fill,
+            }"
+          />
+        </span>
+        <h3
+          class="text-h5 mb-3"
+          :class="{
+            'text-center': props.direction === 'horizontal',
+          }"
+        >
+          {{ g.title }}
+        </h3>
+      </div>
+      <p class="mb-5 text-justify">{{ g.subtitle }}</p>
+    </li>
+  </ul>
 </template>
 
 <script setup lang="ts">
-
 // Define props interface
 interface Props {
   direction?: string
@@ -24,7 +68,7 @@ interface WaranteeItem {
 }
 
 // Reactive data
-const waranteeValues = ref<WaranteeItem[]>([
+const waranteeValues = Object.freeze([
   {
     title: 'Garantía',
     subtitle:
@@ -45,13 +89,5 @@ const waranteeValues = ref<WaranteeItem[]>([
   },
 ])
 
-// Computed properties
-const isVertical = computed(() => {
-  // For now, we'll use a simple window width check
-  // You may need to adjust this based on your breakpoint system
-  if (typeof window !== 'undefined') {
-    return props.direction === 'vertical' || window.innerWidth < 960
-  }
-  return props.direction === 'vertical'
-})
+// No computed properties needed anymore - using Tailwind classes directly
 </script>

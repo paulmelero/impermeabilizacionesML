@@ -1,6 +1,26 @@
 <template>
-  <div class="mt-10">
-    <Container v-if="zones && zones.length" class="zones"> </Container>
+  <div class="relative overflow-hidden bg-neutral">
+    <Container
+      v-if="zones && zones.length"
+      class="zones before:absolute before:inset-0 before:bg-cover before:bg-no-repeat after:absolute after:inset-0 before:z-0 after:z-0"
+    >
+      <div class="relative z-[1]">
+        <h2 class="text-4xl text-center mb-4 pt-12">
+          <span class="inline-block">Trabajamos en toda</span>
+          &nbsp;<span class="inline-block"
+            >el área de <strong>Barcelona</strong></span
+          >
+          &nbsp;<span class="inline-block"
+            >y parte de <strong>Tarragona</strong></span
+          >
+        </h2>
+        <ul class="list-reset space-y-3 mb-12">
+          <li v-for="(zone, index) in zones" :key="index">
+            <p class="text-base-100">{{ zone }}</p>
+          </li>
+        </ul>
+      </div>
+    </Container>
   </div>
 </template>
 
@@ -12,25 +32,10 @@ const { zones } = homeTexts
 
 <style scoped>
 .zones {
-  position: relative;
-  overflow: hidden;
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 0;
-  }
   &::before {
     background-image: url('~/assets/img/Mapa_comarcal_de_Catalunya.svg');
     background-size: 50%;
     background-position: 105% 130%;
-    will-change: transform;
-    transition: transform 0.5s;
-    transform: rotateX(40deg);
     opacity: 0.3;
     @media (max-width: 1199px) {
       background-size: 80%;

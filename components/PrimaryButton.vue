@@ -5,7 +5,7 @@ defineOptions({
 </script>
 
 <template>
-  <button class="btn btn-primary btn-large" v-bind="[$attrs]">
+  <button class="btn btn-secondary btn-large" v-bind="[$attrs]">
     <slot>Pide tu presupuesto</slot>
   </button>
 </template>

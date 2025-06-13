@@ -25,6 +25,8 @@ export default defineNuxtConfig({
     },
   },
 
+  css: ['@/assets/css/main.css'],
+
   // generate: {
   //   fallback: true,
   //   routes: [...getServicesStatic(), ...getPlacesStatic()],

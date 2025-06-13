@@ -47,7 +47,7 @@
       label="Comentarios (opcional)"
       prepend-icon="mdi-comment"
     ></textarea>
-    <button type="submit" class="w90p ml-9"
+    <button type="submit" class="w-[90%] ml-9"
       ><i class="pr-5">mdi-email-fast</i> Enviar</button
     >
   </form>

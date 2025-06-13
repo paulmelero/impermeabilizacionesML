@@ -1,6 +1,6 @@
 <template>
   <div
-    class="tel d-flex"
+    class="tel flex"
     :class="{
       horizontal: direction === 'horizontal',
       'vertical flex-column': direction === 'vertical',

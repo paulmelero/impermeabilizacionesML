@@ -1,13 +1,12 @@
 <template>
   <div>
     <Jumbo />
-    <!-- -->
-    <Container style="min-height: 50vh" class="mt-8 mb-4">
+
+    <Container class="my-8 min-h-[50vh]">
       <Warantee direction="horizontal" :fill="false" />
     </Container>
 
-    <!-- -->
-    <div class="secondary white--text mb-16 overflow-hidden">
+    <div class="mb-16 overflow-hidden">
       <!-- <v-container class="py-12">
         <h2 class="text-center font-bold mb-12 text-h4 text-sm-h3">
           Impermeabilización de terrazas y cubiertas
@@ -51,14 +50,18 @@
       </v-row>
     </v-container> -->
     <!-- -->
-    <Zones class="pt-12" />
+    <Zones />
   </div>
 </template>
 
 <script setup lang="ts">
 // import { getMoreServices, getServices, getEcoServices } from '~/core/getContent'
 
-const structuredData = {
+definePageMeta({
+  layout: 'landing',
+})
+
+const structuredData = Object.freeze({
   '@context': 'https://schema.org',
   '@type': 'RoofingContractor',
   address: {
@@ -107,7 +110,7 @@ const structuredData = {
       },
     ],
   },
-}
+})
 
 // export default {
 //   asyncData() {
