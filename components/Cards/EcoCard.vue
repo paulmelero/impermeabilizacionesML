@@ -1,13 +1,14 @@
 <template>
   <div
-    class="card card-side bg-base-100 shadow-md focus-within:shadow-lg has-[.btn:hover]:shadow-lg transition-shadow duration-200 ease-in"
+    class="card card-side flex-col md:flex-row bg-base-100 shadow-md focus-within:shadow-lg has-[.btn:hover]:shadow-lg transition-shadow duration-200 ease-in"
   >
-    <figure class="!hidden md:!flex">
+    <figure>
       <CardsCardImage
         :src="service.thumbnail1"
         :alt="service.title"
         height="400"
         width="250"
+        class="rounded-b-l-none md:rounded-b-l-sm md:rounded-t-l-sm max-h-100"
       />
     </figure>
     <div
