@@ -1,4 +1,4 @@
-export const slugify = (text) => {
+export const slugify = (text: string) => {
   return String(text || '')
     .toLowerCase()
     .normalize('NFD')

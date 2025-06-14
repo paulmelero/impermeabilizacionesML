@@ -25,9 +25,10 @@
         <component
           :is="field.type === 'textarea' ? 'textarea' : 'input'"
           v-model="field.value"
-          class="input-lg"
+          class="input-lg w-full"
           :type="field.type"
           :name="field.name"
+          :placeholder="field.placeholder"
           :id="field.id"
           :inputmode="field.inputMode"
           :required="field.required"
@@ -69,6 +70,7 @@ const formConfig = [
     icon: 'mdi-phone',
     id: 'phone',
     label: 'Teléfono',
+    placeholder: 'Teléfono o WhatsApp',
     required: true,
     type: 'tel',
     name: 'phone',
@@ -80,6 +82,7 @@ const formConfig = [
     icon: 'mdi-email',
     id: 'email',
     label: 'e-mail (opcional)',
+    placeholder: '(Opcional) Tu correo electrónico',
     required: false,
     type: 'email',
     name: 'email',
@@ -90,6 +93,7 @@ const formConfig = [
     icon: 'mdi-map-marker',
     id: 'place',
     label: 'Localidad',
+    placeholder: 'Localidad o zona de trabajo',
     required: true,
     type: 'text',
     name: 'place',
@@ -100,6 +104,7 @@ const formConfig = [
     icon: 'mdi-comment',
     id: 'comments',
     label: 'Comentarios (opcional)',
+    placeholder: '(Opcional) Escribe aquí tus comentarios o preguntas',
     required: false,
     type: 'textarea',
     name: 'comments',

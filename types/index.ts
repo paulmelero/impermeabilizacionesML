@@ -21,6 +21,6 @@ export interface Work {
   title: string
   place: string
   thumbnail: string
-  service: Service
+  service: string
   seoDescription: string
 }

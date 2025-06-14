@@ -48,5 +48,9 @@ export default defineContentConfig({
         seoDescription: z.string(),
       }),
     }),
+    docs: defineCollection({
+      source: '*.md',
+      type: 'page',
+    }),
   },
 })

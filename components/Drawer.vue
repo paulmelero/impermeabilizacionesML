@@ -13,9 +13,12 @@
     </div>
     <ul class="list">
       <li class="list-row block p-0" v-for="item in menu" :key="item.title">
-        <NuxtLink :to="item.page" class="block font-semibold p-4">{{
-          item.title
-        }}</NuxtLink>
+        <NuxtLink
+          :to="item.page"
+          class="block font-semibold p-4"
+          @click="toggleDrawer"
+          >{{ item.title }}</NuxtLink
+        >
       </li>
     </ul>
   </div>

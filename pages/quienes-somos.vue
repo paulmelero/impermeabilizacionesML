@@ -1,13 +1,28 @@
 <template>
   <div>
-    <!-- <JumboSecondary class="text-left" :title="title" :subtitle="subtitle">
+    <JumboSecondary
+      class="mb-32"
+      :title="title"
+      :subtitle="subtitle"
+      :wide="true"
+    >
       <Container>
-        <p class="texts px-5 px-sm-0" v-html="body || 'Texto'"></p>
+        <div class="py-12">
+          <div
+            class="bg-base-100 p-16 rounded-2xl border-base-300 text-base-content"
+          >
+            <p class="px-5 text-start" v-html="body || ''"></p>
+          </div>
+        </div>
       </Container>
-    </JumboSecondary> -->
+    </JumboSecondary>
 
     <Container class="pb-16 mb-16">
       <Warantee />
+    </Container>
+
+    <Container class="pb-16 mb-16 text-center">
+      <PrimaryButton />
     </Container>
   </div>
 </template>

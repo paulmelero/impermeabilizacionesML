@@ -1,5 +1,9 @@
 <template>
-  <nuxt-link :to="placeLink">{{ place }}</nuxt-link>
+  <nuxt-link
+    :to="placeLink"
+    class="text-secondary underline uppercase hover:text-primary"
+    >{{ place }}</nuxt-link
+  >
 </template>
 
 <script lang="ts">

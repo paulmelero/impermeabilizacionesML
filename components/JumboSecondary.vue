@@ -6,9 +6,14 @@
     <div class="hero-overlay"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content text-neutral-content text-center relative z-[1]">
-      <div class="max-w-md">
+      <div
+        :class="{
+          'max-w-md': !wide,
+          'max-w-3xl mx-auto': wide,
+        }"
+      >
         <h1 class="my-10 text-5xl font-bold">{{ title }}</h1>
-        <p class="mb-5 text-lg">{{ subtitle }}</p>
+        <p v-if="subtitle" class="mb-5 text-lg">{{ subtitle }}</p>
         <slot />
       </div>
     </div>
@@ -19,11 +24,13 @@
 const props = withDefaults(
   defineProps<{
     title: string
-    subtitle: string
+    wide?: boolean
+    subtitle?: string
     minHeight?: string
     bgImage?: string
   }>(),
   {
+    wide: false,
     minHeight: '50vh',
     bgImage: '/images/bcn.jpg',
     title: '',
