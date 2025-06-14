@@ -25,6 +25,16 @@ export default defineNuxtConfig({
     },
   },
 
+  vite: {
+    css: {
+      transformer: 'lightningcss',
+    },
+    build: {
+      cssMinify: 'lightningcss',
+      sourcemap: false,
+    },
+  },
+
   css: ['@/assets/css/main.css'],
 
   // generate: {

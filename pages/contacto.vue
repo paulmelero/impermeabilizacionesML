@@ -65,7 +65,6 @@ export default {
 
 <style scoped>
 .section {
-  grid-template-columns: 1;
   @media (min-width: 768px) {
     grid-template-columns: 1fr auto 1fr;
   }
