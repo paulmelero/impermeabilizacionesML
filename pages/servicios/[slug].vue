@@ -49,17 +49,11 @@ import type {
   EcoServicesCollectionItem,
   ServicesCollectionItem,
 } from '@nuxt/content'
-import { slugify } from '~/core/slugify'
-import type { EcoService } from '~/types'
 
-const { params, query } = useRoute()
-
-const isEco = computed(() => {
-  return query.eco || query.eco === 'true'
-})
+const { params } = useRoute()
 
 const { data: service } = await useAsyncData('service', async () => {
-  if (isEco.value) {
+  if (params.slug.includes('-eco')) {
     return queryCollection('eco_services')
       .where('slug', 'LIKE', params.slug)
       .first()

@@ -18,9 +18,7 @@
       <h3 class="font-bold">{{ service.title }}</h3>
       <p class="text-balance mb-8">{{ service.short_text }}</p>
       <div class="card-actions justify-end">
-        <PrimaryButton
-          class="btn-outline px-6"
-          to="/servicios/cubiertas-eco?eco=true"
+        <PrimaryButton class="btn-outline px-6" to="/servicios/cubiertas-eco"
           >Leer más</PrimaryButton
         >
       </div>
