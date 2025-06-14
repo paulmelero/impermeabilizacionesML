@@ -4,6 +4,13 @@
   ],
   "iconify.inplace": false,
   "iconify.prefixes": [
-    "mdi",
+    "mdi"
   ],
+  "deno.enable": true,
+  "deno.enablePaths": [
+    "netlify/edge-functions"
+  ],
+  "deno.unstable": true,
+  "deno.importMap": ".netlify/edge-functions-import-map.json",
+  "deno.path": "/Users/paul.melero/Library/Preferences/netlify/deno-cli/deno"
 }

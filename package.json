@@ -14,7 +14,8 @@
     "prepare": "nuxt prepare",
     "postinstall": "nuxt prepare",
     "lint": "npm run lint:js",
-    "test": "vitest"
+    "test": "vitest",
+    "fix:issues": "npx nuxi cleanup && npx nuxi dev"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint"
