@@ -12,7 +12,11 @@
           'max-w-3xl mx-auto': wide,
         }"
       >
-        <h1 class="my-10 text-5xl font-bold">{{ title }}</h1>
+        <h1
+          class="my-10 text-4xl md:text-5xl font-bold text-wrap text-ellipsis"
+        >
+          {{ title }}
+        </h1>
         <p v-if="subtitle" class="mb-5 text-lg">{{ subtitle }}</p>
         <slot />
       </div>

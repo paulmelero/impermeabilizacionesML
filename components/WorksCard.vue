@@ -3,7 +3,7 @@
     <figure
       class="md:min-w-1/3 md:max-w-1/3 md:w-1/3 h-50 md:min-h-100 overflow-hidden"
     >
-      <img :src="thumbnail" :alt="title" class="object-cover w-full" />
+      <img :src="fixedThumbnail" :alt="title" class="object-cover w-full" />
     </figure>
     <div class="card-body">
       <h2 class="card-title font-bold text-2xl">{{ title }}</h2>
@@ -24,9 +24,17 @@
 <script setup lang="ts">
 import type { Work } from '~/types'
 
-defineProps<
+const props = defineProps<
   Work & {
     hidePlace?: boolean
   }
 >()
+
+// Remove the initial part of the path if it does
+// not start with a /images until /images
+const fixedThumbnail = computed(() => {
+  return props.thumbnail.startsWith('/images')
+    ? props.thumbnail
+    : props.thumbnail.replace(/^.*?\/?images/, '/images')
+})
 </script>

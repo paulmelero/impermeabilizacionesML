@@ -9,16 +9,16 @@
       <Container>
         <div class="py-12">
           <div
-            class="bg-base-100 p-16 rounded-2xl border-base-300 text-base-content"
+            class="bg-base-100 p-8 md:p-16 rounded-2xl border-base-300 text-base-content"
           >
-            <p class="px-5 text-start" v-html="body || ''"></p>
+            <p class="text-start" v-html="body || ''"></p>
           </div>
         </div>
       </Container>
     </JumboSecondary>
 
-    <Container class="pb-16 mb-16">
-      <Warantee />
+    <Container class="p-16 mb-16">
+      <Warantee direction="horizontal" />
     </Container>
 
     <Container class="pb-16 mb-16 text-center">

@@ -2,7 +2,7 @@
   <div>
     <Jumbo />
 
-    <Container class="my-8 min-h-[50vh]">
+    <Container class="my-8 min-h-[50vh] px-16">
       <Warantee direction="horizontal" :fill="false" />
     </Container>
 

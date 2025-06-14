@@ -6,7 +6,8 @@ export type Service = {
   long_text?: string
 }
 
-export type EcoService = Service & {
+export type EcoService = Omit<Service, 'thumbnail'> & {
+  thumbnail1: string
   thumbnail2: string
   eco?: boolean
 }

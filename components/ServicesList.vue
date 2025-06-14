@@ -1,13 +1,13 @@
 <template>
   <div :class="{ 'bg-secondary text-secondary-content': !flat }">
-    <div class="py-16 overflow-hidden">
+    <div class="p-16 overflow-hidden">
       <Container>
         <div class="text-center">
           <h2 class="text-center font-bold mb-12 text-3xl md:text-4xl">
             Impermeabilización de terrazas y cubiertas
           </h2>
           <div class="hero">
-            <div class="hero-content">
+            <div class="hero-content px-0 md:px-2">
               <div
                 v-for="service in data?.ecoServices ?? []"
                 :key="service.title"
@@ -20,7 +20,7 @@
       </Container>
     </div>
 
-    <div class="pb-16 overflow-hidden">
+    <div class="px-16 pb-16 overflow-hidden">
       <Container class="mb-16">
         <section
           class="grid gap-8 grid-cols-[repeat(auto-fit,minmax(min-content,300px))] items-stretch justify-items-start justify-center"

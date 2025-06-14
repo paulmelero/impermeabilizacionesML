@@ -7,7 +7,7 @@
     >
     </JumboSecondary>
 
-    <Container class="my-32 space-y-24">
+    <Container class="my-32 px-16 space-y-24">
       <WorksCard v-for="(work, i) of works" v-bind="work" :key="i" />
     </Container>
   </div>

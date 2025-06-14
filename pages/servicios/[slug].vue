@@ -11,29 +11,31 @@
         class="h-[500px] block object-cover object-center mx-auto w-full"
       />
     </div>
-    <Container
-      class="-mt-24 mx-auto bg-base-100 text-base-content p-12 relative z-1"
-    >
-      <div v-if="isEco" class="uppercase text-green-800 font-bold mb-6">
-        <h2
-          class="flex justify-center items-center w-full uppercase text-green-800 gap-2"
-        >
-          <Icon name="mdi-recycle" />
-          <span>Sistema Sostenible con el Medio Ambiente</span>
-        </h2>
-      </div>
-      <h1
-        class="font-bold text-center md:text-2xl lg:text-3xl text-lg mb-4 md:px-5"
+    <div class="px-16">
+      <Container
+        class="-mt-24 mx-auto bg-base-100 text-base-content p-12 relative z-1"
       >
-        {{ service?.title }}
-      </h1>
-      <MDC
-        v-if="service && service.long_text"
-        class="mt-10 md:px-5"
-        :value="service.long_text"
-      />
-    </Container>
-    <Container class="mt-12">
+        <div v-if="isEco" class="uppercase text-green-800 font-bold mb-6">
+          <h2
+            class="flex justify-center items-center w-full uppercase text-green-800 gap-2"
+          >
+            <Icon name="mdi-recycle" />
+            <span>Sistema Sostenible con el Medio Ambiente</span>
+          </h2>
+        </div>
+        <h1
+          class="font-bold text-center md:text-2xl lg:text-3xl text-lg mb-4 md:px-5"
+        >
+          {{ service?.title }}
+        </h1>
+        <MDC
+          v-if="service && service.long_text"
+          class="mt-10 md:px-5"
+          :value="service.long_text"
+        />
+      </Container>
+    </div>
+    <Container class="mt-12 px-16">
       <div class="divider"></div>
       <div class="text-center">
         <PrimaryButton to="/servicios" class="mx-auto"
@@ -51,6 +53,8 @@ import type {
 } from '@nuxt/content'
 
 const { params } = useRoute()
+
+const isEco = computed(() => params.slug.includes('-eco'))
 
 const { data: service } = await useAsyncData('service', async () => {
   if (params.slug.includes('-eco')) {

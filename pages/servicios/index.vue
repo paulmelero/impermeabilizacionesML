@@ -2,7 +2,7 @@
   <div>
     <JumboSecondary title="Servicios" :subtitle="subtitle" min-height="40vh" />
 
-    <ServicesList :flat="true" />
+    <ServicesList :flat="true" class="px-16" />
   </div>
 </template>
 

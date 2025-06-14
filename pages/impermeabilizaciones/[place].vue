@@ -1,7 +1,7 @@
 <template>
   <div>
     <JumboSecondary :title="placeTitle" min-height="40vh"> </JumboSecondary>
-    <Container class="my-32 space-y-24">
+    <Container class="px-16 my-32 space-y-24">
       <div v-for="(work, i) of worksByPlace" :key="i" class="divide-y">
         <WorksCard v-bind="work" :hide-place="true" />
       </div>

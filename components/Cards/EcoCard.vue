@@ -2,7 +2,7 @@
   <div
     class="card card-side bg-base-100 shadow-md focus-within:shadow-lg has-[.btn:hover]:shadow-lg transition-shadow duration-200 ease-in"
   >
-    <figure>
+    <figure class="!hidden md:flex">
       <CardsCardImage
         :src="service.thumbnail1"
         :alt="service.title"
@@ -10,7 +10,9 @@
         width="250"
       />
     </figure>
-    <div class="card-body md:max-w-2/3 bg-base-100 text-base-content">
+    <div
+      class="card-body md:max-w-2/3 bg-base-100 text-base-content rounded-sm md:rounded-none"
+    >
       <h2 class="card-title justify-center w-full uppercase text-green-800">
         <Icon name="mdi-recycle" class="pr-2" />
         <span>Sistema Sostenible con el Medio Ambiente</span>
@@ -23,10 +25,10 @@
         >
       </div>
     </div>
-    <figure>
+    <figure class="!hidden md:flex">
       <CardsCardImage
         v-if="service.thumbnail2"
-        class="hidden md:block rounded-0"
+        class="rounded-0"
         :src="service.thumbnail2"
         height="400"
         width="250"

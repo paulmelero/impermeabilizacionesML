@@ -4,12 +4,18 @@
   </div>
   <div class="navbar justify-between bg-base-200 shadow-sm sticky top-0 z-10">
     <div class="flex-1 whitespace-nowrap">
-      <nuxt-link to="/" class="btn btn-ghost text-xl">{{
-        BRAND_NAME
-      }}</nuxt-link>
+      <nuxt-link to="/" class="btn btn-ghost text-xl">
+        <nuxt-img
+          class="inline-block h-8 w-auto"
+          src="/images/logobig.svg"
+          alt=""
+          width="32"
+          height="32"
+        />
+      </nuxt-link>
     </div>
     <div class="navbar-end">
-      <label class="btn btn-circle swap swap-rotate">
+      <label class="btn btn-circle swap swap-rotate md:hidden">
         <!-- this hidden checkbox controls the state -->
         <input v-model="isDrawerOpen" type="checkbox" />
 
@@ -39,11 +45,21 @@
           />
         </svg>
       </label>
+
+      <nav>
+        <ul class="menu menu-horizontal hidden md:inline-flex flex-nowrap">
+          <li v-for="item in menu" :key="item.title">
+            <nuxt-link class="btn btn-ghost" :to="item.page">{{
+              item.title
+            }}</nuxt-link>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 const { isDrawerOpen } = useDrawer()
-const { BRAND_NAME } = useRuntimeConfig().public
+const { menu } = useMenu()
 </script>

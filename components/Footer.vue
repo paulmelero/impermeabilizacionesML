@@ -35,7 +35,7 @@
       <NuxtImg
         src="/images/logobig.svg"
         width="130"
-        class="footer-logo place-self-end"
+        class="footer-logo place-self-end mb-4"
       />
     </aside>
   </footer>
