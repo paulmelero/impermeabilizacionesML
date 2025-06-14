@@ -1,4 +1,4 @@
-export interface Service {
+export type Service = {
   title: string
   short_text: string
   slug: string
@@ -6,17 +6,12 @@ export interface Service {
   long_text?: string
 }
 
-export interface EcoService {
-  title: string
-  short_text: string
-  slug: string
-  thumbnail1: string
+export type EcoService = Service & {
   thumbnail2: string
-  long_text?: string
   eco?: boolean
 }
 
-export interface Work {
+export type Work = {
   date: string
   title: string
   place: string
