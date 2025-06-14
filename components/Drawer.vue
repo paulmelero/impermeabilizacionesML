@@ -22,6 +22,12 @@
       </li>
     </ul>
   </div>
+  <div
+    v-if="isDrawerOpen"
+    aria-label="Cerrar menú"
+    class="fixed cursor-pointer inset-0 z-10 bg-black/50 backdrop-blur-sm"
+    @click="toggleDrawer"
+  ></div>
 </template>
 
 <script setup lang="ts">
