@@ -2,7 +2,7 @@
   <div
     class="card card-side bg-base-100 shadow-md focus-within:shadow-lg has-[.btn:hover]:shadow-lg transition-shadow duration-200 ease-in"
   >
-    <figure class="!hidden md:flex">
+    <figure class="!hidden md:!flex">
       <CardsCardImage
         :src="service.thumbnail1"
         :alt="service.title"
@@ -25,7 +25,7 @@
         >
       </div>
     </div>
-    <figure class="!hidden md:flex">
+    <figure class="!hidden md:!flex">
       <CardsCardImage
         v-if="service.thumbnail2"
         class="rounded-0"

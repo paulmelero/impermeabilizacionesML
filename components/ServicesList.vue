@@ -37,7 +37,7 @@
     </div>
   </div>
 
-  <div class="py-16 overflow-hidden">
+  <div class="p-16 overflow-hidden">
     <Container class="mb-16">
       <h2 class="text-center font-bold mb-12 text-3xl md:text-4xl">
         Más servicios

@@ -7,7 +7,7 @@
             ? (service as EcoServicesCollectionItem).thumbnail1
             : (service as ServicesCollectionItem).thumbnail
         "
-        max-height="500"
+        height="500"
         class="h-[500px] block object-cover object-center mx-auto w-full"
       />
     </div>

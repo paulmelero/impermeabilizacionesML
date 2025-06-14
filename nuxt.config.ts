@@ -40,4 +40,8 @@ export default defineNuxtConfig({
     'nuxt-jsonld',
     '@nuxt/content',
   ],
+
+  image: {
+    provider: 'netlify',
+  },
 })

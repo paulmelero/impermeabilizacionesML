@@ -3,7 +3,7 @@
     <figure
       class="md:min-w-1/3 md:max-w-1/3 md:w-1/3 h-50 md:min-h-100 overflow-hidden"
     >
-      <img :src="fixedThumbnail" :alt="title" class="object-cover w-full" />
+      <NuxtImg :src="fixedThumbnail" :alt="title" class="object-cover w-full" />
     </figure>
     <div class="card-body">
       <h2 class="card-title font-bold text-2xl">{{ title }}</h2>

@@ -1,10 +1,11 @@
 <template>
   <div class="card bg-base-100 shadow-sm h-full">
     <figure>
-      <img
+      <NuxtImg
         :src="service.thumbnail"
         :alt="service.title"
         class="object-cover h-64 w-full"
+        height="256"
       />
     </figure>
     <div class="card-body bg-base-100 text-base-content">
