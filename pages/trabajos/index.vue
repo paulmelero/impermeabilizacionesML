@@ -8,7 +8,7 @@
     </JumboSecondary>
 
     <Container>
-      <WorksCard v-for="(work, i) of works" :key="i">
+      <!-- <WorksCard v-for="(work, i) of works" :key="i">
         <template #image>
           <CardsCardImage :src="work.thumbnail" width="300" height="300" />
         </template>
@@ -22,29 +22,29 @@
         <template #description>
           {{ work.seoDescription }}
         </template>
-      </WorksCard>
+      </WorksCard> -->
     </Container>
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import worksTexts from '~/content/static/works.json'
-import { getWorks } from '~/core/getContent'
+// import { getWorks } from '~/core/getContent'
 
-export default {
-  name: 'Trabajos',
-  layout: 'default',
-  data() {
-    return {
-      works: [],
-      subtitle: '',
-    }
-  },
-  created() {
-    this.works = Array.from(getWorks()).sort((a, b) => {
-      return new Date(b.date) - new Date(a.date)
-    })
-    this.subtitle = worksTexts.body
-  },
-}
+// export default {
+//   name: 'Trabajos',
+//   layout: 'default',
+//   data() {
+//     return {
+//       works: [],
+//       subtitle: '',
+//     }
+//   },
+//   created() {
+//     this.works = Array.from(getWorks()).sort((a, b) => {
+//       return new Date(b.date) - new Date(a.date)
+//     })
+//     this.subtitle = worksTexts.body
+//   },
+// }
 </script>

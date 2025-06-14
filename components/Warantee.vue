@@ -22,7 +22,7 @@
         }"
       >
         <span
-          class="inline-grid place-items-center w-16 h-16 p-3 rounded-full border border-base-300"
+          class="inline-grid place-items-center w-16 h-16 p-3 rounded-full border border-base-300 mb-4"
         >
           <Icon
             :name="g.icon"
@@ -34,7 +34,7 @@
           />
         </span>
         <h3
-          class="text-h5 mb-3"
+          class="text-xl mb-3 font-bold"
           :class="{
             'text-center': props.direction === 'horizontal',
           }"

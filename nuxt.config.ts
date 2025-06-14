@@ -37,6 +37,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/fonts',
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/sitemap',
+    'nuxt-jsonld',
+    '@nuxt/content',
   ],
 })

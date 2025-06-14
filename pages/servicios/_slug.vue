@@ -1,11 +1,6 @@
 <template>
   <div>
-    <Image
-      :lazy-src="$img(image, { width: 10, quality: 70 })"
-      :src="$img(image)"
-      max-height="500"
-      class="reserve-500"
-    />
+    <NuxtImg :src="image" max-height="500" class="reserve-500" />
     <Container class="mt-n16 mx-auto white pt-12 relative z-1">
       <p
         v-if="isEco"
@@ -33,53 +28,51 @@
 </template>
 
 <script>
-import snarkdown from 'snarkdown'
-
-export default {
-  name: 'ServiciosDynamic',
-  layout: 'default',
-  scrollToTop: true,
-  async asyncData({ params, query, error }) {
-    let service
-    try {
-      service = await import(
-        `~/content/static/${query.eco ? 'eco_services' : 'services'}/${
-          params.slug
-        }.json`
-      ).then((m) => m.default)
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.log(e)
-      return error({ statusCode: 404, message: 'service not found' })
-    }
-    return {
-      service,
-      body: snarkdown(service.long_text).replace(
-        // eslint-disable-next-line
-        new RegExp('<br />', 'g'),
-        '<br /><br />'
-      ),
-      isEco: !!query.eco,
-    }
-  },
-  head() {
-    return {
-      title: this.service.title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.service.short_text,
-        },
-      ],
-    }
-  },
-  computed: {
-    image() {
-      return this.isEco ? this.service.thumbnail1 : this.service.thumbnail
-    },
-  },
-}
+// export default {
+//   name: 'ServiciosDynamic',
+//   layout: 'default',
+//   scrollToTop: true,
+//   async asyncData({ params, query, error }) {
+//     let service
+//     try {
+//       service = await import(
+//         `~/content/static/${query.eco ? 'eco_services' : 'services'}/${
+//           params.slug
+//         }.json`
+//       ).then((m) => m.default)
+//     } catch (e) {
+//       // eslint-disable-next-line no-console
+//       console.log(e)
+//       return error({ statusCode: 404, message: 'service not found' })
+//     }
+//     return {
+//       service,
+//       body: snarkdown(service.long_text).replace(
+//         // eslint-disable-next-line
+//         new RegExp('<br />', 'g'),
+//         '<br /><br />'
+//       ),
+//       isEco: !!query.eco,
+//     }
+//   },
+//   head() {
+//     return {
+//       title: this.service.title,
+//       meta: [
+//         {
+//           hid: 'description',
+//           name: 'description',
+//           content: this.service.short_text,
+//         },
+//       ],
+//     }
+//   },
+//   computed: {
+//     image() {
+//       return this.isEco ? this.service.thumbnail1 : this.service.thumbnail
+//     },
+//   },
+// }
 </script>
 
 <style scoped>

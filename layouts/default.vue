@@ -7,5 +7,7 @@
     </main>
 
     <Footer />
+
+    <Drawer />
   </div>
 </template>

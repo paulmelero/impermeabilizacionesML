@@ -37,29 +37,30 @@
   </div>
 </template>
 
-<script>
-import servicesTexts from '~/content/static/services/page_texts.json'
-import { getServices, getMoreServices, getEcoServices } from '~/core/getContent'
+<script setup lang="ts">
+import { subtitle } from '~/content/static/services/page_texts.json'
+// import servicesTexts from '~/content/static/services/page_texts.json'
+// import { getServices, getMoreServices, getEcoServices } from '~/core/getContent'
 
-export default {
-  name: 'Servicios',
-  layout: 'default',
-  asyncData() {
-    return {
-      services: getServices(),
-      moreServices: getMoreServices(),
-      ecoServices: getEcoServices(),
-      body: servicesTexts.body,
-      subtitle: servicesTexts.subtitle,
-    }
-  },
-  data() {
-    return {
-      body: '',
-      subtitle: '',
-      services: [],
-      moreServices: [],
-    }
-  },
-}
+// export default {
+//   name: 'Servicios',
+//   layout: 'default',
+//   asyncData() {
+//     return {
+//       services: getServices(),
+//       moreServices: getMoreServices(),
+//       ecoServices: getEcoServices(),
+//       body: servicesTexts.body,
+//       subtitle: servicesTexts.subtitle,
+//     }
+//   },
+//   data() {
+//     return {
+//       body: '',
+//       subtitle: '',
+//       services: [],
+//       moreServices: [],
+//     }
+//   },
+// }
 </script>

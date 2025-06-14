@@ -1,25 +1,51 @@
 <template>
-
+  <div
+    class="card card-side bg-base-100 shadow-md focus-within:shadow-lg has-[.btn:hover]:shadow-lg transition-shadow duration-200 ease-in"
+  >
+    <figure>
+      <CardsCardImage
+        :src="service.thumbnail1"
+        :alt="service.title"
+        height="400"
+        width="250"
+      />
+    </figure>
+    <div class="card-body md:max-w-2/3">
+      <h2 class="card-title justify-center w-full uppercase text-green-800">
+        <Icon name="mdi-recycle" class="pr-2" />
+        <span>Sistema Sostenible con el Medio Ambiente</span>
+      </h2>
+      <h3 class="font-bold">{{ service.title }}</h3>
+      <p class="text-balance">{{ service.short_text }}</p>
+      <div class="card-actions justify-end">
+        <PrimaryButton class="btn-outline px-6" @click.prevent
+          >Leer más</PrimaryButton
+        >
+      </div>
+    </div>
+    <figure>
+      <CardsCardImage
+        v-if="service.thumbnail2"
+        class="hidden md:block rounded-0"
+        :src="service.thumbnail2"
+        height="400"
+        width="250"
+      />
+    </figure>
+  </div>
 </template>
 
 <script setup lang="ts">
-// Define Service interface based on the JSDoc typedef
-interface Service {
-  title: string
-  short_text: string
-  slug: string
-  thumbnail: string
-  long_text?: string
-}
+import type { EcoService } from '~/types'
 
 // Define props interface
 interface Props {
-  service?: Service
+  service?: EcoService
 }
 
 // Props with defaults
 const props = withDefaults(defineProps<Props>(), {
-  service: () => ({} as Service),
+  service: () => ({}) as EcoService,
 })
 
 // Computed properties

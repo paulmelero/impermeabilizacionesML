@@ -1,11 +1,11 @@
 <template>
-  <div class="relative overflow-hidden bg-neutral">
-    <Container
+  <Container class="relative overflow-hidden bg-neutral">
+    <div
       v-if="zones && zones.length"
       class="zones before:absolute before:inset-0 before:bg-cover before:bg-no-repeat after:absolute after:inset-0 before:z-0 after:z-0"
     >
-      <div class="relative z-[1]">
-        <h2 class="text-4xl text-center mb-4 pt-12">
+      <div class="relative z-[1] p-12">
+        <h2 class="text-4xl mb-12">
           <span class="inline-block">Trabajamos en toda</span>
           &nbsp;<span class="inline-block"
             >el área de <strong>Barcelona</strong></span
@@ -20,8 +20,8 @@
           </li>
         </ul>
       </div>
-    </Container>
-  </div>
+    </div>
+  </Container>
 </template>
 
 <script setup lang="ts">

@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="footer sm:footer-horizontal bg-base-200 text-base-content p-10"
+    class="footer sm:footer-horizontal bg-neutral text-neutral-content p-10"
   >
     <nav>
       <h6 class="footer-title">Enlaces</h6>
@@ -23,22 +23,21 @@
     </nav>
   </footer>
   <footer
-    class="footer bg-base-200 text-base-content border-base-300 border-t px-10 py-4"
+    class="footer bg-neutral text-neutral-content border-base-300 border-t px-10 py-4"
   >
-    <aside class="grid-flow-col items-center">
-      <p>
+    <aside
+      class="grid grid-cols-1 md:grid-cols-2 grid-flow-row place-items-stretch gap-4 w-full"
+    >
+      <p class="flex flex-col justify-center">
         <strong>{{ BRAND_NAME }} &copy;</strong>
-        <br />
-        {{ new Date().getFullYear() }}
+        <span>{{ new Date().getFullYear() }}</span>
       </p>
+      <NuxtImg
+        src="/images/logobig.svg"
+        width="130"
+        class="footer-logo place-self-end"
+      />
     </aside>
-    <nav class="md:place-self-center md:justify-self-end">
-      <div class="grid grid-flow-col gap-4">
-        <div aria-hidden="true">
-          <NuxtImg src="/logobig.svg" height="80" class="footer-logo" />
-        </div>
-      </div>
-    </nav>
   </footer>
 </template>
 
@@ -49,3 +48,10 @@ const {
   public: { BRAND_NAME },
 } = useRuntimeConfig()
 </script>
+
+<style scoped>
+.footer-logo {
+  mix-blend-mode: luminosity;
+  filter: invert(1);
+}
+</style>

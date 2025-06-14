@@ -6,7 +6,7 @@
     >
     </JumboSecondary> -->
     <Container class="pb-16 md:px-5">
-      <div v-for="(work, i) of worksByPlace" :key="i">
+      <div v-for="(work, i) of /* worksByPlace */ []" :key="i">
         <!-- <v-row
           justify="space-around"
           class="flex-nowrap flex-column flex-md-row"
@@ -41,46 +41,46 @@
 </template>
 
 <script>
-import { getWorks } from '~/core/getContent'
+// import { getWorks } from '~/core/getContent'
 import { slugify } from '~/core/slugify'
 
-export default {
-  name: 'TrabajosEn',
-  layout: 'default',
-  asyncData({ params: { place } }) {
-    return { place }
-  },
-  data() {
-    return {
-      worksByPlace: [],
-      subtitle: '',
-    }
-  },
-  head() {
-    return {
-      title: `Impermeabilizaciones en ${this.palceTitle}`,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: `Últimos trabajos realizados en ${this.palceTitle}. Impermeabilizaciones, cubiertas, pisos, paredes, techos, entre otros.`,
-        },
-      ],
-    }
-  },
-  computed: {
-    palceTitle() {
-      return this.worksByPlace[0]?.place || ''
-    },
-  },
-  created() {
-    this.worksByPlace = Array.from(getWorks())
-      .sort((a, b) => {
-        return new Date(b.date) - new Date(a.date)
-      })
-      .filter((work) => {
-        return slugify(work.place) === this.place
-      })
-  },
-}
+// export default {
+//   name: 'TrabajosEn',
+//   layout: 'default',
+//   asyncData({ params: { place } }) {
+//     return { place }
+//   },
+//   data() {
+//     return {
+//       worksByPlace: [],
+//       subtitle: '',
+//     }
+//   },
+//   head() {
+//     return {
+//       title: `Impermeabilizaciones en ${this.palceTitle}`,
+//       meta: [
+//         {
+//           hid: 'description',
+//           name: 'description',
+//           content: `Últimos trabajos realizados en ${this.palceTitle}. Impermeabilizaciones, cubiertas, pisos, paredes, techos, entre otros.`,
+//         },
+//       ],
+//     }
+//   },
+//   computed: {
+//     palceTitle() {
+//       return this.worksByPlace[0]?.place || ''
+//     },
+//   },
+//   created() {
+//     this.worksByPlace = Array.from(getWorks())
+//       .sort((a, b) => {
+//         return new Date(b.date) - new Date(a.date)
+//       })
+//       .filter((work) => {
+//         return slugify(work.place) === this.place
+//       })
+//   },
+// }
 </script>

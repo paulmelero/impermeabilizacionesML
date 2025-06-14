@@ -1,0 +1,6 @@
+{
+  "iconify.customCollectionJsonPaths": [
+    "node_modules/@iconify-json/mdi/icons.json"
+  ],
+  "iconify.inplace": false,
+}
