@@ -7,11 +7,11 @@
       class="hero-content flex-col flex items-start w-full relative z-[2]"
     >
       <div class="container mx-auto">
-        <h1 class="text-wrap font-bold text-2xl md:text-4xl lg:text-5xl mb-3">
+        <h1 class="text-wrap font-bold text-[clamp(1.5rem,4vw,4rem)] mb-3">
           <div>Expertos en</div>
           <div>impermeabilizaciones</div>
         </h1>
-        <h2 class="font-weight-light text-md md:text-lg mb-8">
+        <h2 class="font-weight-light text-[clamp(1rem,2vw,1.25rem)] mb-8">
           Con más de <strong>30 años de experiencia</strong>
         </h2>
         <PrimaryButton />
@@ -42,6 +42,7 @@ export default {
     background-position: 150px 40%;
     background-attachment: fixed;
     @media (max-width: 767px) {
+      background-size: 250%;
       background-position: center;
       background-attachment: fixed;
     }

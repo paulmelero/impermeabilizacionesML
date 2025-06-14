@@ -46,13 +46,7 @@ interface Props {
   service?: EcoService
 }
 
-// Props with defaults
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   service: () => ({}) as EcoService,
-})
-
-// Computed properties
-const link = computed(() => {
-  return { path: '/servicios/' + props.service.slug, query: { eco: true } }
 })
 </script>
