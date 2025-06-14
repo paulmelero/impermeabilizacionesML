@@ -17,7 +17,7 @@
             </v-avatar>
           </div>
           <v-col cols="12" sm="9" lg="10" xs="12" class="pl-md-5">
-            <h3 class="text-h4 mb-2 primary--text">
+            <h3 class="hext-2xl mb-2 primary--text">
               {{ work.title }}
             </h3>
             <h4 class="overline py-0 secondary--text mb-5">

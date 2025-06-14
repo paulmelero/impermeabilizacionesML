@@ -32,12 +32,12 @@
           Más servicios
         </h2>
         <section
-          class="grid gap-8 grid-cols-[repeat(auto-fit,minmax(200px,_1fr))] items-stretch justify-items-start"
+          class="grid gap-8 grid-cols-[repeat(auto-fit,minmax(min-content,300px))] items-stretch justify-items-start"
         >
           <div
             v-for="service in data?.moreServices ?? []"
             :key="service.title"
-            class="m-auto w-full max-w-xs"
+            class="mx-auto w-full max-w-xs h-full flex flex-col items-stretch"
           >
             <CardsServiceCard :service="service" />
           </div>

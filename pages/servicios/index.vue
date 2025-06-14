@@ -21,7 +21,7 @@
       </v-row>
     </v-container>
     <v-container>
-      <h3 class="text-h4 text-center font-bold mt-12 mb-6">Más Servicios</h3>
+      <h3 class="hext-2xl text-center font-bold mt-12 mb-6">Más Servicios</h3>
       <v-row class="pt-6 pb-16 mt-10">
         <v-col
           v-for="service in moreServices"

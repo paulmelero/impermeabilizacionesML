@@ -1,5 +1,5 @@
 <template>
-  <div class="card bg-base-100 shadow-sm">
+  <div class="card bg-base-100 shadow-sm h-full">
     <figure>
       <img
         :src="service.thumbnail"
@@ -52,6 +52,8 @@ const link = computed(() => {
 
 const trim = (text: string, length: number) => {
   if (!text) return ''
-  return text.length > length ? text.slice(0, length) + '...' : text
+  return text.length > length
+    ? text.slice(0, text.lastIndexOf(' ', length)) + '…'
+    : text
 }
 </script>

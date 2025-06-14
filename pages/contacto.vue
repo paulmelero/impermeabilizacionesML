@@ -34,7 +34,7 @@
           <Warantee />
         </v-col>
         <v-col cols="12" sm="8" md="6">
-          <h4 class="mb-4 text-h4 mt-10 mt-md-0">
+          <h4 class="mb-4 hext-2xl mt-10 mt-md-0">
             <span class="hidden-sm-and-down">O </span>Escríbenos
           </h4>
           <p class="mb-8">
