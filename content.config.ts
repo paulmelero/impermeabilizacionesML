@@ -19,7 +19,6 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string(),
         short_text: z.string(),
-        slug: z.string(),
         thumbnail: z.string(),
         long_text: z.string().optional(),
       }),

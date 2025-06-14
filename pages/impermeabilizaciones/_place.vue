@@ -9,7 +9,7 @@
       <div v-for="(work, i) of /* worksByPlace */ []" :key="i">
         <!-- <v-row
           justify="space-around"
-          class="flex-nowrap flex-column flex-md-row"
+          class="flex-nowrap flex-col flex-md-row"
         >
           <div class="flex pa-3">
             <v-avatar tile size="300">

@@ -7,9 +7,9 @@
         class="object-cover h-64 w-full"
       />
     </figure>
-    <div class="card-body">
+    <div class="card-body bg-base-100 text-base-content">
       <h2 class="card-title">{{ service.title }}</h2>
-      <p>{{ trim(service.short_text, 300) }}</p>
+      <p class="mb-4">{{ trim(service.short_text, 300) }}</p>
       <div class="card-actions justify-end">
         <NuxtLink
           v-if="!props.staticCard"
@@ -28,7 +28,7 @@
 interface Service {
   title: string
   short_text: string
-  slug: string
+  slug?: string
   thumbnail: string
   long_text?: string
 }

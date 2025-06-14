@@ -2,10 +2,16 @@
 defineOptions({
   name: 'PrimaryButton',
 })
+
+defineProps<{
+  to?: string
+}>()
+
+const attrs = useAttrs()
 </script>
 
 <template>
-  <button class="btn btn-secondary btn-large" v-bind="[$attrs]">
+  <nuxt-link class="btn btn-secondary btn-lg" :to v-bind="[attrs]">
     <slot>Pide tu presupuesto</slot>
-  </button>
+  </nuxt-link>
 </template>

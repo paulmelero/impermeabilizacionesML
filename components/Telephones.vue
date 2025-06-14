@@ -1,16 +1,16 @@
 <template>
   <div
-    class="tel flex"
+    class="flex"
     :class="{
       horizontal: direction === 'horizontal',
-      'vertical flex-column': direction === 'vertical',
+      'flex-col ': direction === 'vertical',
     }"
   >
     <span v-for="(tel, index) of telephones" :key="tel">
       <nuxt-link
         v-bind="buttonProps"
         :href="`tel:+34 ${tel}`"
-        class="py-2 px-4"
+        class="btn py-2 px-4"
         :class="{
           'mb-5': direction === 'vertical' && index !== telephones.length - 1,
           'ml-3': direction === 'horizontal' && index !== 0,
@@ -30,9 +30,9 @@ withDefaults(
   {
     direction: 'horizontal',
     buttonProps: () => ({
-      class: 'btn btn-secondary',
+      class: 'btn-secondary',
     }),
-  }
+  },
 )
 
 // Reactive data

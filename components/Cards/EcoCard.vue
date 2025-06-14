@@ -10,15 +10,17 @@
         width="250"
       />
     </figure>
-    <div class="card-body md:max-w-2/3">
+    <div class="card-body md:max-w-2/3 bg-base-100 text-base-content">
       <h2 class="card-title justify-center w-full uppercase text-green-800">
         <Icon name="mdi-recycle" class="pr-2" />
         <span>Sistema Sostenible con el Medio Ambiente</span>
       </h2>
       <h3 class="font-bold">{{ service.title }}</h3>
-      <p class="text-balance">{{ service.short_text }}</p>
+      <p class="text-balance mb-8">{{ service.short_text }}</p>
       <div class="card-actions justify-end">
-        <PrimaryButton class="btn-outline px-6" @click.prevent
+        <PrimaryButton
+          class="btn-outline px-6"
+          to="/servicios/cubiertas-eco?eco=true"
           >Leer más</PrimaryButton
         >
       </div>

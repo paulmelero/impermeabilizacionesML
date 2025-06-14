@@ -2,7 +2,7 @@
   <ul class="list-reset pl-0">
     <li>
       <nuxt-link
-        class="btn btn-secondary"
+        class="btn btn-base-100"
         href="https://www.instagram.com/impermeabilizaciones_lm/"
         target="_blank"
       >

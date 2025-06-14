@@ -11,13 +11,13 @@
       :key="i"
       class="md:max-w-[90%] mx-auto"
       :class="{
-        'flex md:flex-col': props.direction === 'vertical',
+        'flex flex-col': props.direction === 'vertical',
       }"
     >
       <div
-        class="container mx-auto"
+        class="container mx-auto text-center"
         :class="{
-          'text-center mb-8': props.direction === 'horizontal',
+          'mb-8': props.direction === 'horizontal',
           'mr-3 mb-3': props.direction === 'vertical',
         }"
       >
