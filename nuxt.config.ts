@@ -1,3 +1,6 @@
+import browserslist from 'browserslist'
+import { browserslistToTargets, Rule } from 'lightningcss'
+
 import { BRAND_DESCRIPTION, BRAND_NAME, BRAND_URL } from './config/brand'
 // import { getServicesStatic, getPlacesStatic } from './core/getContent'
 
@@ -28,6 +31,9 @@ export default defineNuxtConfig({
   vite: {
     css: {
       transformer: 'lightningcss',
+      lightningcss: {
+        targets: browserslistToTargets(browserslist('>0.25%, not dead')),
+      },
     },
     build: {
       cssMinify: 'lightningcss',
@@ -52,6 +58,6 @@ export default defineNuxtConfig({
   ],
 
   image: {
-    provider: 'netlify',
+    // netlify provider is activated by default when using `pnpm netlify:dev`
   },
 })

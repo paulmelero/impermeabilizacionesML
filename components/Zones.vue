@@ -8,10 +8,12 @@
         <h2 class="text-4xl mb-12 text-pretty">
           <span class="inline-block">Trabajamos en toda</span>
           <span class="inline-block">
-            el área de <strong>Barcelona</strong></span
+            <span class="hidden sm:inline">&nbsp;</span>el área de
+            <strong>Barcelona</strong></span
           >
           <span class="inline-block">
-            y parte de <strong>Tarragona</strong></span
+            <span class="hidden sm:inline">&nbsp;</span>y parte de
+            <strong>Tarragona</strong></span
           >
         </h2>
         <ul class="list-reset space-y-3 mb-12">
