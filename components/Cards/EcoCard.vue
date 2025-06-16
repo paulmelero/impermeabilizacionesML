@@ -1,84 +1,52 @@
 <template>
-  <v-card
-    class="rounded-lg d-flex flex-column flex-sm-row justify-space-between"
-    nuxt
-    :to="link"
+  <div
+    class="card card-side flex-col md:flex-row bg-base-100 shadow-md focus-within:shadow-lg has-[.btn:hover]:shadow-lg transition-shadow duration-200 ease-in"
   >
-    <CardsCardImage
-      v-if="service.thumbnail1"
-      :src="service.thumbnail1"
-      height="400"
-      width="250"
-    />
-    <div class="d-flex flex-column justify-center pa-6">
-      <v-card-title class="primary--text flex-column align-start">
-        <p
-          class="
-            overline
-            green--text
-            text--darken-3
-            font-weight-bold
-            mb-3
-            text-wrap
-            break-normal
-          "
+    <figure>
+      <CardsCardImage
+        :src="service.thumbnail1"
+        :alt="service.title"
+        height="400"
+        width="250"
+        class="rounded-b-l-none md:rounded-b-l-sm md:rounded-t-l-sm max-h-100"
+      />
+    </figure>
+    <div
+      class="card-body md:max-w-2/3 bg-base-100 text-base-content rounded-sm md:rounded-none"
+    >
+      <h2 class="card-title justify-center w-full uppercase text-green-800">
+        <Icon name="mdi-recycle" class="pr-2" />
+        <span>Sistema Sostenible con el Medio Ambiente</span>
+      </h2>
+      <h3 class="font-bold">{{ service.title }}</h3>
+      <p class="text-balance mb-8">{{ service.short_text }}</p>
+      <div class="card-actions justify-end">
+        <PrimaryButton class="btn-outline px-6" to="/servicios/cubiertas-eco"
+          >Leer más</PrimaryButton
         >
-          <v-icon class="pr-2" color="green darken-3">mdi-recycle</v-icon>
-          <span>Sistema Sostenible con el Medio Ambiente</span>
-        </p>
-        <h3 class="v-card__title pa-0 text-wrap break-normal">
-          {{ service.title }}
-        </h3>
-      </v-card-title>
-      <v-card-text class="grey--text text--darken-4">{{
-        service.short_text
-      }}</v-card-text>
-      <v-card-actions class="">
-        <ClientOnly>
-          <PrimaryButton outlined class="px-6" @click.prevent
-            >Leer más</PrimaryButton
-          >
-        </ClientOnly>
-      </v-card-actions>
+      </div>
     </div>
-    <CardsCardImage
-      v-if="service.thumbnail2"
-      class="hide-on-small-screen rounded-0"
-      :src="service.thumbnail2"
-      height="400"
-      width="250"
-    />
-  </v-card>
+    <figure class="!hidden md:!flex">
+      <CardsCardImage
+        v-if="service.thumbnail2"
+        class="rounded-0"
+        :src="service.thumbnail2"
+        height="400"
+        width="250"
+      />
+    </figure>
+  </div>
 </template>
 
-<script>
-/**
- * @typedef Service
- * @property {string} title
- * @property {string} short_text
- * @property {string} slug
- * @property {string} thumbnail
- * @property {string} [long_text]
- */
-export default {
-  props: {
-    service: {
-      type: Object,
-      default: () => ({}),
-    },
-  },
-  computed: {
-    link() {
-      return { path: '/servicios/' + this.service.slug, query: { eco: true } }
-    },
-  },
-}
-</script>
+<script setup lang="ts">
+import type { EcoService } from '~/types'
 
-<style scoped>
-@media (max-width: 960px) {
-  .hide-on-small-screen {
-    display: none;
-  }
+// Define props interface
+interface Props {
+  service?: EcoService
 }
-</style>
+
+withDefaults(defineProps<Props>(), {
+  service: () => ({}) as EcoService,
+})
+</script>

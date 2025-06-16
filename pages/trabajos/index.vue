@@ -3,48 +3,20 @@
     <JumboSecondary
       title="Trabajos"
       subtitle="Últimos trabajos realizados"
-      min-height="10vh"
+      min-height="40vh"
     >
     </JumboSecondary>
 
-    <Container>
-      <WorksCard v-for="(work, i) of works" :key="i">
-        <template #image>
-          <CardsCardImage :src="work.thumbnail" width="300" height="300" />
-        </template>
-        <template #title>
-          {{ work.title }}
-        </template>
-        <template #subtitle>
-          {{ work.service }}<span v-if="work.place">&nbsp;-&nbsp;</span
-          ><PlaceLink v-if="work.place" :place="work.place"></PlaceLink>
-        </template>
-        <template #description>
-          {{ work.seoDescription }}
-        </template>
-      </WorksCard>
+    <Container class="my-32 px-16 space-y-24">
+      <WorksCard v-for="(work, i) of works" v-bind="work" :key="i" />
     </Container>
   </div>
 </template>
 
-<script>
-import worksTexts from '~/content/static/works.json'
-import { getWorks } from '~/core/getContent'
+<script setup lang="ts">
+const { data: works } = await useAsyncData(async () => {
+  const works = await queryCollection('works').all()
 
-export default {
-  name: 'Trabajos',
-  layout: 'default',
-  data() {
-    return {
-      works: [],
-      subtitle: '',
-    }
-  },
-  created() {
-    this.works = Array.from(getWorks()).sort((a, b) => {
-      return new Date(b.date) - new Date(a.date)
-    })
-    this.subtitle = worksTexts.body
-  },
-}
+  return works
+})
 </script>

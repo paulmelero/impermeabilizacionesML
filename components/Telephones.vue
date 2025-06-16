@@ -1,47 +1,40 @@
 <template>
   <div
-    class="tel d-flex"
+    class="flex"
     :class="{
       horizontal: direction === 'horizontal',
-      'vertical flex-column': direction === 'vertical',
+      'flex-col ': direction === 'vertical',
     }"
   >
     <span v-for="(tel, index) of telephones" :key="tel">
-      <v-btn
+      <nuxt-link
         v-bind="buttonProps"
-        :small="$vuetify.breakpoint.smAndDown"
         :href="`tel:+34 ${tel}`"
-        class="py-2 px-4"
+        class="btn py-2 px-4"
         :class="{
           'mb-5': direction === 'vertical' && index !== telephones.length - 1,
           'ml-3': direction === 'horizontal' && index !== 0,
         }"
-        ><v-icon class="mr-2">mdi-phone</v-icon> {{ tel }}</v-btn
+        ><Icon class="mr-2" name="mdi-phone" /> {{ tel }}</nuxt-link
       ></span
     >
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Telephones',
-  props: {
-    direction: {
-      type: String,
-      default: 'horizontal',
-    },
-    buttonProps: {
-      type: Object,
-      default: () => ({
-        text: true,
-        color: 'info',
-      }),
-    },
+<script setup lang="ts">
+withDefaults(
+  defineProps<{
+    direction?: 'horizontal' | 'vertical'
+    buttonProps?: Record<string, any>
+  }>(),
+  {
+    direction: 'horizontal',
+    buttonProps: () => ({
+      class: 'btn-secondary',
+    }),
   },
-  data() {
-    return {
-      telephones: ['605 94 01 67'],
-    }
-  },
-}
+)
+
+// Reactive data
+const telephones = ['605 94 01 67']
 </script>

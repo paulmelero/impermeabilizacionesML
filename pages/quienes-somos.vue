@@ -1,14 +1,28 @@
 <template>
   <div>
-    <JumboSecondary class="text-left" :title="title" :subtitle="subtitle">
+    <JumboSecondary
+      class="mb-32"
+      :title="title"
+      :subtitle="subtitle"
+      :wide="true"
+    >
       <Container>
-        <!-- eslint-disable-next-line vue/no-v-html -->
-        <p class="texts px-5 px-sm-0" v-html="body || 'Texto'"></p>
+        <div class="py-12">
+          <div
+            class="bg-base-100 p-8 md:p-16 rounded-2xl border-base-300 text-base-content"
+          >
+            <p class="text-start" v-html="body || ''"></p>
+          </div>
+        </div>
       </Container>
     </JumboSecondary>
 
-    <Container class="pb-16 mb-16">
-      <Warantee />
+    <Container class="p-16 mb-16">
+      <Warantee direction="horizontal" />
+    </Container>
+
+    <Container class="pb-16 mb-16 text-center">
+      <PrimaryButton />
     </Container>
   </div>
 </template>
@@ -45,7 +59,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .first-col {
   position: relative;
   &:after {
@@ -57,7 +71,7 @@ export default {
     height: 1px;
     background-color: #e9e9e9;
   }
-  @include onDesktop {
+  @media (min-width: 1200px) {
     &:after {
       content: '';
       top: 10%;

@@ -1,61 +1,60 @@
 <template>
-  <v-card
-    class="rounded-lg h100p d-flex flex-column justify-space-between"
-    :class="{
-      'elevation-0': staticCard,
-    }"
-  >
-    <nuxt-link v-if="!staticCard" :to="link">
-      <CardsCardImage :src="service.thumbnail" height="250" width="500" />
-    </nuxt-link>
-    <CardsCardImage v-else :src="service.thumbnail" height="250" width="500" />
-    <v-card-title class="px-6 primary--text">
-      <h3 class="v-card__title pa-0 text-wrap break-normal">
-        {{ service.title }}
-      </h3>
-    </v-card-title>
-    <v-card-text
-      class="px-6 grey--text text--darken-4 pb-0 mb-auto"
-      :class="{
-        'mb-6': staticCard,
-      }"
-      >{{ service.short_text }}</v-card-text
-    >
-    <v-card-actions v-if="!staticCard" class="mt-4 mb-6 px-6">
-      <ClientOnly>
-        <PrimaryButton outlined :to="link" nuxt class="px-6"
-          >Leer más</PrimaryButton
+  <div class="card bg-base-100 shadow-sm h-full">
+    <figure>
+      <NuxtImg
+        :src="service.thumbnail"
+        :alt="service.title"
+        class="object-cover h-64 w-full"
+        height="256"
+      />
+    </figure>
+    <div class="card-body bg-base-100 text-base-content">
+      <h2 class="card-title">{{ service.title }}</h2>
+      <p class="mb-4">{{ trim(service.short_text, 300) }}</p>
+      <div class="card-actions justify-end">
+        <NuxtLink
+          v-if="!props.staticCard"
+          :to="link"
+          class="btn btn-secondary btn-outline"
         >
-      </ClientOnly>
-    </v-card-actions>
-  </v-card>
+          Leer más
+        </NuxtLink>
+      </div>
+    </div>
+  </div>
 </template>
 
-<script>
-/**
- * @typedef Service
- * @property {string} title
- * @property {string} short_text
- * @property {string} slug
- * @property {string} thumbnail
- * @property {string} [long_text]
- */
-export default {
-  props: {
-    service: {
-      type: Object,
-      default: () => ({}),
-    },
-    // no links
-    staticCard: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  computed: {
-    link() {
-      return '/servicios/' + this.service.slug
-    },
-  },
+<script setup lang="ts">
+// Define Service interface based on the JSDoc typedef
+interface Service {
+  title: string
+  short_text: string
+  slug?: string
+  thumbnail: string
+  long_text?: string
+}
+
+// Define props interface
+interface Props {
+  service?: Service
+  staticCard?: boolean // no links
+}
+
+// Props with defaults
+const props = withDefaults(defineProps<Props>(), {
+  service: () => ({}) as Service,
+  staticCard: false,
+})
+
+// Computed properties
+const link = computed(() => {
+  return '/servicios/' + props.service.slug
+})
+
+const trim = (text: string, length: number) => {
+  if (!text) return ''
+  return text.length > length
+    ? text.slice(0, text.lastIndexOf(' ', length)) + '…'
+    : text
 }
 </script>

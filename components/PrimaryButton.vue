@@ -1,17 +1,22 @@
-<script>
-export default {
+<script setup lang="ts">
+defineOptions({
   name: 'PrimaryButton',
-  props: {
-    color: {
-      type: String,
-      default: 'primary',
-    },
+})
+
+withDefaults(
+  defineProps<{
+    to?: string
+  }>(),
+  {
+    to: '/contacto',
   },
-}
+)
+
+const attrs = useAttrs()
 </script>
 
 <template>
-  <v-btn rounded large :color="color" v-bind="[$attrs]">
+  <nuxt-link class="btn btn-secondary btn-lg" :to v-bind="attrs">
     <slot>Pide tu presupuesto</slot>
-  </v-btn>
+  </nuxt-link>
 </template>

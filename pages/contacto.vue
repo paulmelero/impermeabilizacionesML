@@ -3,45 +3,38 @@
     <JumboSecondary
       :title="title"
       subtitle="Pídenos presupuesto sin compromiso. Llámanos para resolver tus dudas."
+      min-height="60vh"
     >
       <div class="text-center">
-        <h3 class="mb-6">Teléfonos y WhatsApp</h3>
+        <h3 class="text-2xl font-bold font-[Roboto,sans-serif] mb-6">
+          Teléfonos y WhatsApp
+        </h3>
         <Telephones
           direction="vertical"
-          :button-props="{ color: 'info', large: true }"
+          :button-props="{ class: 'btn-primary btn-lg' }"
         />
       </div>
 
-      <Container class="text-center mt-10">
-        <h3 class="mb-6">Redes Sociales</h3>
-        <ul class="list-reset pl-0">
-          <li>
-            <v-btn
-              color="secondary"
-              href="https://www.instagram.com/impermeabilizaciones_lm/"
-              target="_blank"
-              ><v-icon dark class="mr-2">mdi-instagram</v-icon> Instagram</v-btn
-            >
-          </li>
-        </ul>
+      <Container class="text-center py-10 px-6 md:px-12">
+        <h3 class="text-2xl font-bold font-[Roboto,sans-serif] mb-6">
+          Redes Sociales
+        </h3>
+        <SocialNetworks />
       </Container>
     </JumboSecondary>
 
-    <Container class="pb-16 mb-16">
-      <v-row justify="center">
-        <v-col class="first-col" cols="12" sm="8" md="6">
-          <Warantee />
-        </v-col>
-        <v-col cols="12" sm="8" md="6">
-          <h4 class="mb-4 text-h4 mt-10 mt-md-0">
-            <span class="hidden-sm-and-down">O </span>Escríbenos
-          </h4>
-          <p class="mb-8">
-            <span>Y te contactaremos lo antes posible!</span>
-          </p>
+    <Container class="py-24 px-6 md:px-12">
+      <div class="section grid gap-0 items-center justify-between">
+        <Warantee />
+        <div class="divider hidden md:flex md:divider-horizontal">O</div>
+        <div class="py-12 md:py-0">
+          <h2 class="text-center md:text-start text-4xl font-bold mb-6">
+            Escríbenos
+          </h2>
+          <p class="mb-8">Y te contactaremos lo antes posible!</p>
           <ContactForm />
-        </v-col>
-      </v-row>
+        </div>
+      </div>
     </Container>
   </div>
 </template>
@@ -70,26 +63,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.first-col {
-  position: relative;
-  &:after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    right: 10%;
-    width: 80%;
-    height: 1px;
-    background-color: #e9e9e9;
-  }
-  @include onDesktop {
-    &:after {
-      content: '';
-      top: 10%;
-      right: 5%;
-      width: 1px;
-      height: 80%;
-    }
+<style scoped>
+.section {
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr auto 1fr;
   }
 }
 </style>

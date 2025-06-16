@@ -1,31 +1,40 @@
 <template>
-  <v-row
-    justify="space-around"
-    class="w-card flex-nowrap flex-column flex-md-row"
-  >
-    <div class="flex pl-3 pa-md-3 text-center">
-      <v-avatar tile size="300">
-        <slot name="image" />
-      </v-avatar>
-    </div>
-    <v-col cols="12" md="9" lg="10" xs="12" class="pl-md-5">
-      <h3 class="text-h5 mb-2 primary--text text-center text-md-left">
-        <slot name="title" />
+  <div class="card md:card-side bg-base-100">
+    <figure
+      class="md:min-w-1/3 md:max-w-1/3 md:w-1/3 h-50 md:min-h-100 overflow-hidden"
+    >
+      <NuxtImg :src="fixedThumbnail" :alt="title" class="object-cover w-full" />
+    </figure>
+    <div class="card-body">
+      <h2 class="card-title font-bold text-2xl">{{ title }}</h2>
+      <h3
+        class="text-md font-semibold text-secondary flex gap-2 flex-row flex-wrap items-center tracking-wide mb-8"
+      >
+        <span class="uppercase">{{ service }}</span>
+        <span v-if="!hidePlace" class="hidden md:inline">-</span>
+        <span v-if="!hidePlace"><PlaceLink :place /></span>
       </h3>
-      <h4 class="overline py-0 secondary--text mb-1 text-center text-md-left">
-        <slot name="subtitle" />
-      </h4>
-      <p class="texts"><slot name="description"></slot></p
-    ></v-col>
-  </v-row>
+      <p class="text-md text-balance">
+        {{ seoDescription }}
+      </p>
+    </div>
+  </div>
 </template>
 
-<style lang="scss" scoped>
-.w-card {
-  margin-bottom: 6rem;
+<script setup lang="ts">
+import type { Work } from '~/types'
 
-  @include onDesktop {
-    margin-bottom: 4rem;
+const props = defineProps<
+  Work & {
+    hidePlace?: boolean
   }
-}
-</style>
+>()
+
+// Remove the initial part of the path if it does
+// not start with a /images until /images
+const fixedThumbnail = computed(() => {
+  return props.thumbnail.startsWith('/images')
+    ? props.thumbnail
+    : props.thumbnail.replace(/^.*?\/?images/, '/images')
+})
+</script>

@@ -1,94 +1,55 @@
 <template>
-  <v-footer color="primary" class="footer overflow-hidden">
-    <v-row no-gutters class="w100p">
-      <v-col cols="8" class="m-auto">
-        <v-row>
-          <v-col class="d-flex flex-column pa-6 mt-4" cols="12" sm="12" md="6">
-            <v-btn
-              v-for="item in menu"
-              :key="item.title"
-              text
-              dark
-              color="white"
-              active-class="transparent"
-              class="my-2 py-4 text-capitalize"
-              large
-              :to="item.page"
-              nuxt
-              >{{ item.title }}</v-btn
-            >
-          </v-col>
-          <v-col cols="12" sm="12" md="6">
-            <v-card tile flat color="transparent" class="text-center w100p">
-              <v-card-text class="white--text py-0 text-center">
-                <p class="text-h5 text-center pt-10">Teléfonos</p>
-                <Telephones
-                  class="justify-center"
-                  :button-props="{
-                    text: true,
-                    color: 'white',
-                    large: true,
-                  }"
-                  direction="vertical"
-                />
-              </v-card-text>
-            </v-card>
-            <v-card
-              tile
-              flat
-              color="transparent"
-              class="text-center w100p mt-2 mb-14 mb-sm-8"
-            >
-              <v-card-text class="white--text pt-0 text-center">
-                <p class="text-h5 text-center pt-10">Redes Sociales</p>
-                <ul class="list-reset pl-0">
-                  <li>
-                    <v-btn
-                      depressed
-                      text
-                      color="white"
-                      href="https://www.instagram.com/impermeabilizaciones_lm/"
-                      target="_blank"
-                      class="text-capitalize"
-                      ><v-icon class="mr-2">mdi-instagram</v-icon>
-                      Instagram</v-btn
-                    >
-                  </li>
-                </ul>
-              </v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-col>
-    </v-row>
-
-    <v-row class="mt-0">
-      <v-card tile flat color="transparent" class="text-center w100p">
-        <v-card-text class="white--text text-center py-0 mb-8">
-          <div aria-hidden="true">
-            <img src="/logobig.svg" height="80" class="footer-logo" />
-          </div>
-          <div>
-            {{ new Date().getFullYear() }} -
-            <strong>{{ $config.BRAND_NAME }} &copy;</strong>
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-row>
-  </v-footer>
+  <footer
+    class="footer sm:footer-horizontal bg-neutral text-neutral-content p-10"
+  >
+    <nav>
+      <h6 class="footer-title">Enlaces</h6>
+      <nuxt-link
+        v-for="link in menu"
+        :key="link.title"
+        :to="link.page"
+        class="link link-hover"
+      >
+        {{ link.title }}
+      </nuxt-link>
+    </nav>
+    <nav>
+      <h6 class="footer-title">Teléfono</h6>
+      <Telephones />
+    </nav>
+    <nav>
+      <h6 class="footer-title">Redes Sociales</h6>
+      <SocialNetworks />
+    </nav>
+  </footer>
+  <footer
+    class="footer bg-neutral text-neutral-content border-base-300 border-t px-10 py-4"
+  >
+    <aside
+      class="grid grid-cols-1 md:grid-cols-2 grid-flow-row place-items-stretch gap-4 w-full"
+    >
+      <p class="flex flex-col justify-center">
+        <strong>{{ BRAND_NAME }} &copy;</strong>
+        <span>{{ new Date().getFullYear() }}</span>
+      </p>
+      <NuxtImg
+        src="/images/logobig.svg"
+        width="130"
+        class="footer-logo place-self-end mb-4"
+      />
+    </aside>
+  </footer>
 </template>
 
-<script>
-import hasMenu from '@/mixins/hasMenu'
-export default {
-  mixins: [hasMenu],
-}
+<script setup lang="ts">
+const { menu } = useMenu()
+
+const {
+  public: { BRAND_NAME },
+} = useRuntimeConfig()
 </script>
 
-<style lang="scss" scoped>
-.footer {
-  flex-direction: column;
-}
+<style scoped>
 .footer-logo {
   mix-blend-mode: luminosity;
   filter: invert(1);

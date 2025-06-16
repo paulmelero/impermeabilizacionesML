@@ -3,19 +3,23 @@
     <JumboSecondary
       title="Gracias"
       subtitle="Te contactaremos lo antes posible"
+      min-height="80vh"
     >
       <div class="text-center">
-        <v-btn to="/" nuxt large color="secondary"
-          >Volver a la página principal</v-btn
+        <nuxt-link to="/" class="btn btn-secondary"
+          >Volver a la página principal</nuxt-link
         >
       </div>
     </JumboSecondary>
   </div>
 </template>
 
-<script>
-export default {
+<script setup lang="ts">
+defineOptions({
   name: 'Gracias',
-  layout: 'default',
-}
+})
+
+definePageMeta({
+  layout: 'landing',
+})
 </script>

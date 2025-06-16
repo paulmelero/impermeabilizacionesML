@@ -1,115 +1,65 @@
 <template>
-  <div>
-    <v-app-bar
-      fixed
-      app
-      shrink-on-scroll
-      scroll-threshold="100"
-      hide-on-scroll
-      clipped-left
-      :prominent="$vuetify.breakpoint.mdAndUp"
-      flat
-      color="white"
-      class="header px-0"
-    >
-      <v-toolbar flat class="first-nav secondary flex-row w100p" tag="div">
-        <v-app-bar-nav-icon
-          dark
-          class="hidden-sm-and-up"
-          @click.stop="isDrawerOpen = !isDrawerOpen"
-        ></v-app-bar-nav-icon>
-        <v-spacer></v-spacer>
+  <div class="navbar isolate bg-base-100 text-primary-content justify-end">
+    <Telephones />
+  </div>
+  <div class="navbar justify-between bg-base-200 shadow-sm sticky top-0 z-10">
+    <div class="flex-1 whitespace-nowrap">
+      <nuxt-link to="/" class="btn btn-ghost text-xl">
+        <nuxt-img
+          class="inline-block h-8 w-auto"
+          src="/images/logobig.svg"
+          alt=""
+          width="32"
+          height="32"
+        />
+      </nuxt-link>
+    </div>
+    <div class="navbar-end">
+      <label class="btn btn-circle swap swap-rotate md:hidden">
+        <!-- this hidden checkbox controls the state -->
+        <input v-model="isDrawerOpen" type="checkbox" />
 
-        <v-toolbar-title>
-          <Telephones
-            :button-props="{
-              text: true,
-              color: 'white',
-            }"
+        <!-- hamburger icon -->
+        <svg
+          class="swap-off fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 512 512"
+        >
+          <path
+            d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z"
           />
-        </v-toolbar-title>
-      </v-toolbar>
-      <v-toolbar
-        flat
-        class="second-nav transparent flex-row w100p py-0 px-0 hidden-xs-only"
-        tag="nav"
-      >
-        <v-toolbar-items class="w100p white">
-          <v-btn nuxt text to="/" active-class="transparent">
-            <img
-              src="/logobig.svg"
-              height="48"
-              alt="Home"
-              title="Ir al inicio"
-            />
-          </v-btn>
-          <v-spacer></v-spacer>
-          <v-spacer></v-spacer>
-          <v-btn
-            v-for="item in menu"
-            :key="item.title"
-            class="hidden-xs-only"
-            text
-            nuxt
-            exact
-            :to="item.page"
-          >
-            {{ item.title }}
-          </v-btn>
-        </v-toolbar-items>
-      </v-toolbar>
+        </svg>
 
-      <v-spacer />
-    </v-app-bar>
-    <v-navigation-drawer v-model="isDrawerOpen" app temporary width="300">
-      <v-list-item to="/" active-class="transparent">
-        <v-list-item-content>
-          <v-list-item-title>{{ $config.BRAND_NAME }}</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
+        <!-- close icon -->
+        <svg
+          class="swap-on fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 512 512"
+        >
+          <polygon
+            points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49"
+          />
+        </svg>
+      </label>
 
-      <v-divider></v-divider>
-
-      <v-list>
-        <v-list-item to="/">
-          <v-list-item-content>
-            <v-list-item-title>Home</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item v-for="item in menu" :key="item.title" :to="item.page">
-          <v-list-item-content>
-            <v-list-item-title>- {{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+      <nav>
+        <ul class="menu menu-horizontal hidden md:inline-flex flex-nowrap">
+          <li v-for="item in menu" :key="item.title">
+            <nuxt-link class="btn btn-ghost" :to="item.page">{{
+              item.title
+            }}</nuxt-link>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </template>
 
-<script>
-import hasMenu from '@/mixins/hasMenu'
-export default {
-  mixins: [hasMenu],
-  data() {
-    return {
-      isDrawerOpen: false,
-    }
-  },
-}
+<script setup lang="ts">
+const { isDrawerOpen } = useDrawer()
+const { menu } = useMenu()
 </script>
-
-<style lang="scss">
-[aria-current='page'].transparent {
-  &:before {
-    background-color: transparent;
-  }
-}
-.header > .v-toolbar__content,
-.second-nav > .v-toolbar__content {
-  padding: 0;
-}
-.header > .v-toolbar__content {
-  display: flex;
-  flex-direction: column;
-}
-</style>

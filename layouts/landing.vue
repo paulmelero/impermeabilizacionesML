@@ -2,7 +2,7 @@
   <div>
     <Header />
 
-    <main class="pb-16">
+    <main>
       <slot />
     </main>
 

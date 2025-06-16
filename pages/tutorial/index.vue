@@ -3,79 +3,71 @@
     <JumboSecondary class="text-left" :title="title">
       <Container>
         <form v-if="!confirmed" autocomplete="off" @submit="handleSubmit">
-          <v-text-field
-            id="password"
-            outlined
-            prepend-icon="mdi-security"
-            type="password"
-            autocomplete="off"
-            name="password"
-            placeholder="password..."
-            @click="showError = false"
-          />
-          <p v-if="showError" class="red--text font-weight-bold">
+          <label class="input mb-8">
+            <Icon name="mdi-lock" class="h-[1em] opacity-50" />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              class="text-black"
+              @click="showFormError = false"
+              required
+            />
+          </label>
+          <p v-if="showFormError" class="red--text font-weight-bold">
             Password equivocado
           </p>
-          <PrimaryButton type="submit">Confirmar</PrimaryButton>
+          <PrimaryButton :to="undefined" type="submit">Confirmar</PrimaryButton>
         </form>
-        <v-scroll-y-transition>
-          <!-- eslint-disable vue/no-v-html -->
-          <p
-            v-if="confirmed"
-            class="texts px-5 px-sm-0 body-wrapper"
-            v-html="body || 'Texto'"
-          />
-        </v-scroll-y-transition>
+        <ContentRenderer
+          v-else-if="tutorial"
+          :value="tutorial"
+          class="body-wrapper"
+        />
       </Container>
     </JumboSecondary>
   </div>
 </template>
 
-<script>
-import contenido from './contenido.md'
+<script setup lang="ts">
+// Define page data
+const title = 'Tutorial'
 
-export default {
-  asyncData() {
-    return {
-      title: 'Tutorial',
-      body: contenido,
-    }
-  },
-  data() {
-    return {
-      confirmed: false,
-      showError: false,
-    }
-  },
-  head() {
-    return {
-      title: this.title,
-      meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'description', name: 'description', content: 'Tutorial' },
-        {
-          name: 'robots',
-          content: 'noindex, nofollow',
-        },
-      ],
-    }
-  },
-  methods: {
-    handleSubmit(e) {
-      e.preventDefault()
-      const password = e.target.password.value
-      if (password === 'enrique') {
-        this.confirmed = true
-      } else {
-        this.showError = true
-      }
+// Reactive data
+const password = ref('')
+const confirmed = ref(false)
+const showFormError = ref(false)
+
+useHead({
+  title: title,
+  meta: [
+    { charset: 'utf-8' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    { name: 'description', content: 'Tutorial' },
+    {
+      name: 'robots',
+      content: 'noindex, nofollow',
     },
-  },
+  ],
+})
+
+// Methods
+const handleSubmit = (e) => {
+  e.preventDefault()
+  const password = e.target.password.value
+  if (password === 'enrique') {
+    confirmed.value = true
+  } else {
+    showFormError.value = true
+  }
 }
+
+const { data: tutorial } = await useAsyncData(async () => {
+  return queryCollection('docs').first()
+})
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 #password {
   width: 100%;
   margin-bottom: 1rem;
@@ -83,12 +75,11 @@ export default {
   border-radius: 2px;
 }
 
-// content
-::v-deep :where(h2, h3, h4, h5, h6) {
+:deep(:where(h2, h3, h4, h5, h6)) {
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
-.body-wrapper::v-deep img {
+.body-wrapper :deep(img) {
   max-width: 100%;
   height: auto;
 }

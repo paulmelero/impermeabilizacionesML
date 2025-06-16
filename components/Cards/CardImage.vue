@@ -1,5 +1,5 @@
 <template>
-  <nuxt-img loading="lazy" v-bind="$attrs" class="cld" :src="src" />
+  <nuxt-img loading="lazy" v-bind="$attrs" :src="src" />
 </template>
 
 <script>

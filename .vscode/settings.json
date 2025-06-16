@@ -1,0 +1,16 @@
+{
+  "iconify.customCollectionJsonPaths": [
+    "node_modules/@iconify-json/mdi/icons.json"
+  ],
+  "iconify.inplace": false,
+  "iconify.prefixes": [
+    "mdi"
+  ],
+  "deno.enable": true,
+  "deno.enablePaths": [
+    "netlify/edge-functions"
+  ],
+  "deno.unstable": true,
+  "deno.importMap": ".netlify/edge-functions-import-map.json",
+  "deno.path": "/Users/paul.melero/Library/Preferences/netlify/deno-cli/deno"
+}
