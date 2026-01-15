@@ -19,7 +19,7 @@
       :key="field.id"
       class="flex gap-4 items-center mb-10 w-full"
     >
-      <Icon :name="field.icon || 'mdi-textbox'" class="text-primary" />
+      <Icon :name="field.icon || iconFallback" class="text-primary" />
       <label class="floating-label grow">
         <span>{{ field.label }}</span>
         <component
@@ -113,4 +113,6 @@ const formConfig = [
     value: comments,
   },
 ]
+
+const iconFallback = 'mdi-form-textbox'
 </script>
