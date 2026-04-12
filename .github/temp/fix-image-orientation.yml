@@ -1,0 +1,57 @@
+name: Fix Image Orientation
+
+on:
+  push:
+    paths:
+      - 'public/images/uploads/**'
+
+jobs:
+  fix-orientation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install sharp
+        run: npm install sharp@0.34
+
+      - name: Fix EXIF orientation
+        run: |
+          node -e "
+          const sharp = require('sharp');
+          const fs = require('fs');
+          const path = require('path');
+
+          const dir = 'public/images/uploads';
+          const files = fs.readdirSync(dir).filter(f => /\.(jpe?g)$/i.test(f));
+
+          async function fixImages() {
+            let fixed = 0;
+            for (const file of files) {
+              const filePath = path.join(dir, file);
+              const metadata = await sharp(filePath).metadata();
+              if (metadata.orientation && metadata.orientation !== 1) {
+                console.log('Fixing:', file, '(orientation:', metadata.orientation + ')');
+                const buffer = await sharp(filePath).rotate().toBuffer();
+                fs.writeFileSync(filePath, buffer);
+                fixed++;
+              }
+            }
+            console.log('Fixed:', fixed, 'of', files.length, 'images');
+            return fixed;
+          }
+
+          fixImages().then(n => process.exit(n > 0 ? 0 : 78));
+          "
+
+      - name: Commit fixed images
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/images/uploads/
+          git diff --staged --quiet && echo "No changes to commit" || git commit -m "fix: auto-orient images based on EXIF data"
+          git push
