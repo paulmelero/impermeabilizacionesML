@@ -1,7 +1,7 @@
 import browserslist from 'browserslist'
-import { browserslistToTargets, Rule } from 'lightningcss'
+import { browserslistToTargets, type Rule } from 'lightningcss'
 
-import { BRAND_DESCRIPTION, BRAND_NAME, BRAND_URL } from './config/brand'
+import { BRAND_DESCRIPTION, BRAND_NAME, BRAND_URL } from './app/config/brand'
 // import { getServicesStatic, getPlacesStatic } from './core/getContent'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config

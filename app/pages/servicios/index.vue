@@ -7,5 +7,5 @@
 </template>
 
 <script setup lang="ts">
-import { subtitle } from '~/content/static/services/page_texts.json'
+import { subtitle } from '../../../content/static/services/page_texts.json'
 </script>

@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import homeTexts from '~/content/static/home.json'
+import homeTexts from '../../content/static/home.json'
 
 const { zones } = homeTexts
 </script>

@@ -39,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import type { EcoService } from '~/types'
+import type { EcoService } from '../../../types'
 
 // Define props interface
 interface Props {

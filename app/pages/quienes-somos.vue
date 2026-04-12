@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import aboutUsTexts from '~/content/static/aboutus.json'
+import aboutUsTexts from '../../content/static/aboutus.json'
 const title = 'Quiénes somos'
 
 export default {

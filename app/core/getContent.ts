@@ -1,4 +1,4 @@
-import type { Service, Work } from '~/types'
+import type { Service, Work } from '../types'
 import { slugify } from './slugify'
 
 const CONTENT_BASE = 'content'
