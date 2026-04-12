@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 const { data: works } = await useAsyncData(async () => {
-  const works = await queryCollection('works').all()
+  const works = await queryCollection('works').order('date', 'DESC').all()
 
   return works
 })

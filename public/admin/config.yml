@@ -26,7 +26,7 @@ collections:
       - label: 'Fecha de realización'
         name: 'date'
         widget: 'date'
-        format: 'DD MMM YYYY'
+        format: 'YYYY-MM-DD'
       - {
           label: 'Imagen del trabajo',
           name: 'thumbnail',
