@@ -56,15 +56,20 @@ const { params } = useRoute()
 
 const isEco = computed(() => params.slug.includes('-eco'))
 
-const { data: service } = await useAsyncData('service', async () => {
-  if (params.slug.includes('-eco')) {
-    return queryCollection('eco_services')
+const { data: service } = await useAsyncData(
+  `service-${params.slug}`,
+  async () => {
+    if (params.slug?.includes('-eco')) {
+      return queryCollection('eco_services')
+        .where('slug', 'LIKE', params.slug)
+        .first()
+    }
+
+    return queryCollection('services')
       .where('slug', 'LIKE', params.slug)
       .first()
-  }
-
-  return queryCollection('services').where('slug', 'LIKE', params.slug).first()
-})
+  },
+)
 </script>
 
 <style scoped>
