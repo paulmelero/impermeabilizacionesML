@@ -54,7 +54,7 @@ import type {
 
 const { params } = useRoute()
 
-const isEco = computed(() => params.slug.includes('-eco'))
+const isEco = computed(() => params.slug?.includes('-eco'))
 
 const { data: service } = await useAsyncData(
   `service-${params.slug}`,

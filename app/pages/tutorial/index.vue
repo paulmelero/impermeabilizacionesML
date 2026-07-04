@@ -52,9 +52,9 @@ useHead({
 })
 
 // Methods
-const handleSubmit = (e) => {
+const handleSubmit = (e: SubmitEvent) => {
   e.preventDefault()
-  const password = e.target.password.value
+  const password = (e.target as HTMLFormElement).password.value
   if (password === 'enrique') {
     confirmed.value = true
   } else {
