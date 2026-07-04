@@ -22,12 +22,14 @@ import { slugify } from '~/core/slugify'
 
 const { params } = useRoute()
 
-const { data: worksByPlace } = await useAsyncData('worksByPlace', async () =>
-  Promise.resolve(
-    (await queryCollection('works').all()).filter((work) => {
-      return slugify(work.place) === params.place
-    }),
-  ),
+const { data: worksByPlace } = await useAsyncData(
+  `worksByPlace-${params.place}`,
+  async () =>
+    Promise.resolve(
+      (await queryCollection('works').all()).filter((work) => {
+        return slugify(work.place) === params.place
+      }),
+    ),
 )
 
 const placeTitle = computed(() => {
