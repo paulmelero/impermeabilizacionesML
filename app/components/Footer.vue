@@ -32,7 +32,7 @@
         <strong>{{ BRAND_NAME }} &copy;</strong>
         <span>{{ new Date().getFullYear() }}</span>
       </p>
-      <NuxtImg
+      <img
         src="/images/logobig.svg"
         width="130"
         class="footer-logo place-self-end mb-4"

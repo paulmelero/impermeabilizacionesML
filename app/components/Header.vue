@@ -5,9 +5,7 @@
   <div class="navbar justify-between bg-base-200 shadow-sm sticky top-0 z-10">
     <div class="flex-1 whitespace-nowrap">
       <nuxt-link to="/" class="btn btn-ghost text-xl">
-        <nuxt-img
-          format="webp"
-          quality="80"
+        <img
           class="inline-block h-8 w-auto"
           src="/images/logobig.svg"
           alt=""
@@ -17,7 +15,7 @@
         />
       </nuxt-link>
     </div>
-    <div class="navbar-end">
+    <div class="navbar-end !w-fit">
       <label class="btn btn-circle swap swap-rotate md:hidden">
         <!-- this hidden checkbox controls the state -->
         <input v-model="isDrawerOpen" type="checkbox" />

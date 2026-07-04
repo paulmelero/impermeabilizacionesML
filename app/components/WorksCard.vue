@@ -11,7 +11,7 @@
         class="text-md font-semibold text-secondary flex gap-2 flex-row flex-wrap items-center tracking-wide mb-8"
       >
         <span class="uppercase">{{ service }}</span>
-        <span v-if="!hidePlace" class="hidden md:inline">-</span>
+        <span v-if="!hidePlace" class="hidden lg:inline">-</span>
         <span v-if="!hidePlace"><PlaceLink :place /></span>
       </h3>
       <p class="text-md text-balance">
