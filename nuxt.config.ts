@@ -58,6 +58,6 @@ export default defineNuxtConfig({
   ],
 
   image: {
-    // netlify provider is activated by default when using `pnpm netlify:dev`
+    provider: 'netlify',
   },
 })

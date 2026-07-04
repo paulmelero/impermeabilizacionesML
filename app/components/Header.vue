@@ -6,11 +6,14 @@
     <div class="flex-1 whitespace-nowrap">
       <nuxt-link to="/" class="btn btn-ghost text-xl">
         <nuxt-img
+          format="webp"
+          quality="80"
           class="inline-block h-8 w-auto"
           src="/images/logobig.svg"
           alt=""
           width="32"
           height="32"
+          sizes="100vw"
         />
       </nuxt-link>
     </div>
