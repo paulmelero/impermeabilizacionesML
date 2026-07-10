@@ -32,6 +32,9 @@ collections:
           name: 'thumbnail',
           widget: 'image',
           required: true,
+          accept: image/webp,
+          image/jpeg,
+          image/png,
         }
       - label: 'Tipo de Servicio'
         name: 'service'
